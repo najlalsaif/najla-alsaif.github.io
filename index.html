@@ -3,999 +3,1248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Najla Alsaif | MIS Portfolio</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+<meta name="description"
+content="Najla Alsaif — Management Information Systems student portfolio.">
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-font-family:'DM Sans',sans-serif;
-color:#17263e;
-background:#fbfcfd;
-line-height:1.65
-}
-a{text-decoration:none;color:inherit}
+<style>
 
 :root{
---navy:#17263e;
---blue:#557895;
---light:#eef4f8;
---pale:#f3f6f8;
---line:#d9e0e6;
---muted:#697585;
---max:1050px
+  --ink:#101828;
+  --muted:#667085;
+  --paper:#f7f8fc;
+  --white:#ffffff;
+  --line:#e5e7ef;
+  --accent:#5b5bd6;
+  --accent2:#8b8bf0;
+  --soft:#eeeeff;
+  --dark:#11152a;
 }
 
-header{
-height:82px;
-background:white;
-border-bottom:1px solid #e2e7eb;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 38px;
-position:sticky;
-top:0;
-z-index:100
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-.logo{
-font-family:Manrope,sans-serif;
-font-size:20px;
-font-weight:800
+html{
+  scroll-behavior:smooth;
 }
 
-nav{
-display:flex;
-gap:27px;
-font-size:13px;
-font-weight:700;
-color:#586779
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
 }
 
-nav a:hover{color:var(--blue)}
-
-.menu{
-display:none;
-border:1px solid var(--line);
-background:white;
-border-radius:12px;
-padding:10px 13px;
-font-size:20px
-}
-
-section{
-padding:100px 38px
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 .container{
-max-width:var(--max);
-margin:auto
+  width:min(1120px,calc(100% - 40px));
+  margin:auto;
 }
+
+/* NAVIGATION */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(247,248,252,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(229,231,239,.8);
+}
+
+.nav-inner{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-weight:800;
+  letter-spacing:-.04em;
+  font-size:20px;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  font-size:14px;
+  font-weight:600;
+  color:#475467;
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+/* HERO */
 
 .hero{
-min-height:calc(100vh - 82px);
-display:flex;
-align-items:center;
-position:relative;
-overflow:hidden;
-background:linear-gradient(135deg,#fbfcfd,#f0f5f8)
+  padding:90px 0 70px;
 }
 
-.hero:before,
-.hero:after{
-content:"";
-position:absolute;
-border-radius:50%;
-background:#e1e8ed;
-opacity:.55
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:60px;
+  align-items:center;
 }
 
-.hero:before{
-width:280px;
-height:280px;
-left:-130px;
-top:180px
-}
-
-.hero:after{
-width:250px;
-height:250px;
-right:-80px;
-bottom:-60px
-}
-
-.hero-content{
-max-width:1050px;
-width:100%;
-margin:auto;
-position:relative;
-z-index:2
-}
-
-.badges{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-bottom:30px
-}
-
-.badge{
-border:1px solid #d1dce4;
-border-radius:30px;
-padding:9px 17px;
-font-size:12px;
-font-weight:800;
-letter-spacing:1.3px;
-color:#46627a;
-background:#f8fbfc
-}
-
-h1{
-font:800 clamp(58px,9vw,100px)/.98 Manrope,sans-serif;
-letter-spacing:-5px;
-margin-bottom:12px
-}
-
-h1 span{color:#63819a}
-
-.line{
-width:310px;
-height:5px;
-border-radius:8px;
-background:linear-gradient(90deg,#3f607a,#cbd8e0);
-margin-bottom:13px
-}
-
-.hero h2{
-font:700 clamp(18px,2.5vw,27px)/1.35 Manrope,sans-serif;
-max-width:850px
-}
-
-.hero-text{
-font-size:17px;
-color:#657282;
-max-width:800px;
-margin:22px 0
-}
-
-.words{
-display:flex;
-gap:15px;
-font-size:17px;
-margin:20px 0 30px
-}
-
-.words i{
-font-style:normal;
-color:#8ca0af
-}
-
-.status{
-font-weight:700;
-color:#405367
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:22px;
 }
 
 .dot{
-display:inline-block;
-width:11px;
-height:11px;
-background:#2db47d;
-border-radius:50%;
-margin-right:8px;
-box-shadow:0 0 0 7px #dff5ec
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
 }
 
-.buttons{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-margin-top:28px
+h1{
+  font-size:clamp(58px,9vw,112px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:850;
+}
+
+.hero h1 span{
+  display:block;
+  color:var(--accent);
+}
+
+.hero-copy{
+  margin-top:28px;
+  max-width:610px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+  flex-wrap:wrap;
 }
 
 .btn{
-display:inline-block;
-border-radius:35px;
-padding:13px 25px;
-font-weight:800;
-font-size:14px
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 19px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:750;
+  border:1px solid var(--line);
+  background:white;
 }
 
-.primary{
-background:#537691;
-color:white;
-box-shadow:0 12px 25px rgba(52,83,106,.18)
+.btn.primary{
+  background:var(--ink);
+  color:white;
+  border-color:var(--ink);
 }
 
-.secondary{
-border:2px solid #526f88;
-color:#526f88
+.btn:hover{
+  transform:translateY(-2px);
 }
 
-.secondary:hover{background:#eef4f8}
+/* HERO CARD */
 
-.label{
-font-size:12px;
-font-weight:800;
-letter-spacing:2.2px;
-color:#49647a
+.hero-card{
+  background:var(--dark);
+  color:white;
+  border-radius:28px;
+  padding:28px;
+  min-height:360px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 24px 70px rgba(17,21,42,.16);
 }
 
-.title{
-font:800 clamp(38px,6vw,68px)/1.08 Manrope,sans-serif;
-letter-spacing:-3px;
-margin:18px 0 48px
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#bfc4d8;
+  font-size:12px;
 }
 
-.title em{
-font-style:italic;
-color:#557895
+.badge{
+  padding:7px 10px;
+  border:1px solid #30364f;
+  border-radius:999px;
+}
+
+.graph{
+  height:170px;
+  position:relative;
+  display:flex;
+  align-items:end;
+  gap:12px;
+}
+
+.bar{
+  flex:1;
+  background:linear-gradient(180deg,var(--accent2),#4b4bb9);
+  border-radius:8px 8px 2px 2px;
+  min-height:28px;
+}
+
+.bar:nth-child(1){height:42%}
+.bar:nth-child(2){height:66%}
+.bar:nth-child(3){height:52%}
+.bar:nth-child(4){height:84%}
+.bar:nth-child(5){height:72%}
+.bar:nth-child(6){height:94%}
+
+.card-bottom{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.metric{
+  border:1px solid #2b3148;
+  border-radius:16px;
+  padding:14px;
+}
+
+.metric b{
+  font-size:24px;
+}
+
+.metric small{
+  display:block;
+  color:#aeb4c9;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* SECTIONS */
+
+section{
+  padding:95px 0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:38px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:800;
+  color:var(--accent);
+}
+
+h2{
+  font-size:clamp(36px,5vw,58px);
+  letter-spacing:-.055em;
+  line-height:1;
+}
+
+.section-intro{
+  max-width:430px;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:70px;
+}
+
+.about-lead{
+  font-size:30px;
+  line-height:1.2;
+  letter-spacing:-.03em;
+  font-weight:700;
+}
+
+.about-lead em{
+  color:var(--accent);
+  font-style:normal;
 }
 
 .about-text{
-max-width:900px;
-font-size:18px;
-color:#344359
+  color:var(--muted);
+  font-size:16px;
 }
 
-.about-text p{
-margin-bottom:20px
+.about-text p+p{
+  margin-top:16px;
 }
 
-.quote{
-font-size:21px;
-font-weight:700;
-border-left:8px solid #557895;
-padding-left:20px
-}
-
-.cards{
-display:grid;
-gap:15px;
-margin-top:55px
-}
-
-.card{
-display:flex;
-gap:18px;
-align-items:center;
-background:white;
-border:1px solid var(--line);
-border-radius:22px;
-padding:23px 27px
-}
-
-.card-icon{font-size:25px}
-
-.card h3{
-font:800 18px Manrope,sans-serif
-}
-
-.card p{
-color:#77818e;
-font-size:14px
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:28px;
 }
 
 .info{
-margin-top:30px;
-background:white;
-border:1px solid var(--line);
-border-radius:24px;
-overflow:hidden;
-display:grid;
-grid-template-columns:1fr 1fr
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
 }
 
-.info div{
-padding:25px;
-border-bottom:1px solid var(--line);
-border-right:1px solid var(--line)
+.info span{
+  display:block;
+  color:#98a2b3;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:700;
 }
 
-.info div:nth-child(even){border-right:0}
-.info div:nth-last-child(-n+2){border-bottom:0}
-
-.info small{
-display:block;
-color:#597087;
-font-size:11px;
-font-weight:800;
-letter-spacing:1.5px;
-margin-bottom:8px
+.info strong{
+  display:block;
+  margin-top:5px;
+  font-size:14px;
 }
 
-.info strong{font-size:16px}
+/* PROJECTS */
 
-.pale{
-background:#f1f5f7
+.projects{
+  background:white;
 }
 
-.education{
-background:linear-gradient(135deg,#203c59,#2d4c68);
-border-radius:35px;
-padding:42px;
-color:white;
-min-height:500px;
-box-shadow:0 20px 50px rgba(31,55,78,.15)
-}
-
-.years{
-font-size:13px;
-letter-spacing:2px;
-margin-bottom:65px
-}
-
-.education p{
-font-size:18px;
-font-weight:700
-}
-
-.education h3{
-font:800 clamp(40px,6vw,65px)/.98 Manrope,sans-serif;
-letter-spacing:-3px;
-margin:18px 0
-}
-
-.degree{
-font-size:19px;
-color:#d8e3ec
-}
-
-.date{
-display:inline-block;
-border:1px solid rgba(255,255,255,.35);
-border-radius:30px;
-padding:9px 17px;
-margin-top:65px
-}
-
-.focus{
-background:white;
-border:1px solid var(--line);
-border-radius:30px;
-padding:35px;
-margin-top:30px
-}
-
-.focus small{
-font-size:12px;
-letter-spacing:2px;
-font-weight:800;
-color:#55708a
-}
-
-.focus div{
-background:#edf3f7;
-border:1px solid #d7e1e8;
-border-radius:17px;
-padding:15px 18px;
-margin-top:13px;
-font-weight:700;
-color:#53677b
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
 .project{
-background:white;
-border:1px solid #dbe2e7;
-border-radius:30px;
-padding:34px 35px;
-margin-top:24px;
-box-shadow:0 12px 35px rgba(37,55,70,.05)
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:26px;
+  background:#fff;
+  transition:.25s;
 }
 
-.project-top{
-display:flex;
-justify-content:space-between;
-font-weight:800;
-color:#58718a;
-margin-bottom:45px
+.project:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 50px rgba(16,24,40,.08);
 }
 
-.project small{
-letter-spacing:2px;
-font-weight:800;
-color:#526c83
+.project.featured{
+  grid-column:span 2;
+  background:var(--soft);
+  border-color:#dedeff;
+}
+
+.project-number{
+  font-size:12px;
+  color:var(--accent);
+  font-weight:800;
+  letter-spacing:.1em;
 }
 
 .project h3{
-font:800 30px/1.15 Manrope,sans-serif;
-margin:8px 0 14px
+  font-size:24px;
+  letter-spacing:-.03em;
+  margin:22px 0 10px;
 }
 
 .project p{
-font-size:16px;
-color:#687586;
-max-width:850px
+  color:var(--muted);
+  font-size:14px;
+  max-width:650px;
 }
 
 .tags{
-display:flex;
-gap:9px;
-flex-wrap:wrap;
-margin:22px 0
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
 }
 
-.tags span{
-background:#edf3f7;
-border:1px solid #d5e0e7;
-border-radius:30px;
-padding:7px 12px;
-font-size:12px;
-color:#526a7e;
-font-weight:700
+.tag{
+  font-size:11px;
+  font-weight:750;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#f2f4f7;
+  color:#475467;
 }
 
-.project a{
-display:inline-block;
-background:#5b7b95;
-color:white;
-padding:11px 19px;
-border-radius:28px;
-font-weight:800;
-font-size:13px
+/* SKILLS */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
-.skills{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:16px
+.skill-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:25px;
+}
+
+.skill-box h3{
+  font-size:18px;
+  margin-bottom:17px;
+}
+
+.skill-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
 }
 
 .skill{
-background:white;
-border:1px solid var(--line);
-border-radius:24px;
-padding:28px
+  padding:9px 12px;
+  background:#f7f8fc;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-size:13px;
+  font-weight:650;
 }
 
-.skill h3{
-font:800 19px Manrope,sans-serif;
-margin-bottom:10px
+/* CONTACT */
+
+.contact{
+  background:var(--dark);
+  color:white;
+  border-radius:32px;
+  padding:55px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:end;
 }
 
-.skill p{
-color:#687586;
-font-size:14px
+.contact h2{
+  margin-top:12px;
 }
 
-.contact-text{
-color:#687586;
-font-size:18px;
-max-width:650px
+.contact p{
+  color:#b9bfd1;
+  margin-top:18px;
+  max-width:540px;
 }
+
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.contact-link{
+  padding:14px 16px;
+  border:1px solid #30364f;
+  border-radius:12px;
+  color:#e9ebf4;
+  font-size:14px;
+}
+
+.contact-link:hover{
+  border-color:var(--accent2);
+}
+
+/* FOOTER */
 
 footer{
-padding:30px 38px;
-border-top:1px solid var(--line);
-display:flex;
-justify-content:space-between;
-color:#718091;
-font-size:12px;
-max-width:1050px;
-margin:auto
+  padding:30px 0;
+  color:#98a2b3;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
 }
 
-@media(max-width:720px){
+/* MOBILE */
 
-header{
-padding:0 20px
+@media(max-width:800px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding:65px 0 45px;
+  }
+
+  .hero-grid,
+  .about,
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    min-height:300px;
+  }
+
+  section{
+    padding:70px 0;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-intro{
+    margin-top:16px;
+  }
+
+  .project-grid,
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
+
+  .project.featured{
+    grid-column:span 1;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact{
+    padding:35px;
+  }
+
+  footer{
+    display:block;
+  }
+
+  footer span{
+    display:block;
+    margin-top:7px;
+  }
 }
 
-nav{
-display:none;
-position:absolute;
-top:82px;
-left:0;
-right:0;
-background:white;
-padding:20px;
-flex-direction:column;
-border-bottom:1px solid var(--line)
-}
-
-nav.open{display:flex}
-
-.menu{display:block}
-
-section{padding:75px 20px}
-
-h1{
-letter-spacing:-3px
-}
-
-.line{width:190px}
-
-.title{
-letter-spacing:-2px
-}
-
-.info{
-grid-template-columns:1fr
-}
-
-.info div{
-border-right:0!important;
-border-bottom:1px solid var(--line)!important
-}
-
-.info div:last-child{border-bottom:0!important}
-
-.skills{
-grid-template-columns:1fr
-}
-
-.education{
-padding:30px;
-min-height:450px
-}
-
-.education h3{
-letter-spacing:-2px
-}
-
-.date{
-margin-top:45px
-}
-
-footer{
-padding:25px 20px;
-display:block
-}
-
-footer span{
-display:block;
-margin:4px 0
-}
-
-}
 </style>
 </head>
 
+
 <body>
 
-<header>
-<a class="logo" href="#home">Najla Alsaif</a>
 
-<button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+<!-- NAVIGATION -->
 
 <nav>
+
+<div class="container nav-inner">
+
+<a class="logo" href="#">
+NAJLA<span>.</span>
+</a>
+
+<div class="nav-links">
+
 <a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#projects">Projects</a>
+
+<a href="#work">Projects</a>
+
 <a href="#skills">Skills</a>
+
 <a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
 </nav>
+
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container hero-grid">
+
+
+<div>
+
+<div class="eyebrow">
+
+<span class="dot"></span>
+
+Management Information Systems
+
+</div>
+
+
+<h1>
+
+Najla
+
+<span>Alsaif.</span>
+
+</h1>
+
+
+<p class="hero-copy">
+
+Final-year MIS student interested in data, systems, and the space where technology meets business.
+I enjoy turning ideas and information into clear, practical solutions.
+
+</p>
+
+
+<div class="actions">
+
+<a class="btn primary" href="#work">
+
+Explore my work ↗
+
+</a>
+
+<a class="btn" href="#contact">
+
+Let's connect
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-card">
+
+
+<div class="card-top">
+
+<span>DATA / SYSTEMS / BUSINESS</span>
+
+<span class="badge">
+
+Riyadh, KSA
+
+</span>
+
+</div>
+
+
+<div class="graph">
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+<div class="bar"></div>
+
+</div>
+
+
+<div class="card-bottom">
+
+
+<div class="metric">
+
+<b>05+</b>
+
+<small>Academic Projects</small>
+
+</div>
+
+
+<div class="metric">
+
+<b>MIS</b>
+
+<small>Field of Study</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
 </header>
 
 
-<section id="home" class="hero">
-<div class="hero-content">
 
-<div class="badges">
-<span class="badge">👋 MANAGEMENT INFORMATION SYSTEMS STUDENT</span>
-<span class="badge">🎓 FINAL-YEAR STUDENT</span>
-</div>
-
-<h1>Najla <span>Alsaif</span></h1>
-
-<div class="line"></div>
-
-<h2>
-Exploring data, technology, and business through academic projects.
-</h2>
-
-<p class="hero-text">
-My work combines business thinking, information systems, data analysis,
-and digital solutions to understand needs, improve processes,
-and create practical outcomes.
-</p>
-
-<div class="words">
-<b>Analyze</b>
-<i>•</i>
-<b>Design</b>
-<i>•</i>
-<b>Improve</b>
-</div>
-
-<p class="status">
-<span class="dot"></span>
-Currently open to professional opportunities.
-</p>
-
-<div class="buttons">
-<a class="btn primary" href="#about">About Me ↗</a>
-<a class="btn secondary" href="#contact">Contact Me ✉</a>
-</div>
-
-</div>
-</section>
-
+<!-- ABOUT -->
 
 <section id="about">
+
 <div class="container">
 
-<div class="label">✨ &nbsp; ABOUT</div>
 
-<h2 class="title">
-Curious about how <em>business needs</em> become solutions.
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+01 — About
+</div>
+
+<h2>
+A little about me.
 </h2>
+
+</div>
+
+
+<p class="section-intro">
+
+A student portfolio built around the skills and projects I have developed throughout my MIS journey.
+
+</p>
+
+</div>
+
+
+
+<div class="about">
+
+
+<div class="about-lead">
+
+I connect
+
+<em>business needs</em>
+
+with technology, data, and thoughtful system design.
+
+</div>
+
+
 
 <div class="about-text">
 
-<p class="quote">
-I’m a Management Information Systems student with interests in
-data analysis, information systems, project management, and digital business.
+<p>
+
+I am a Management Information Systems student at King Saud University, currently in my final year.
+My interests include data analysis, information systems, project management, digital business, and process improvement.
+
 </p>
+
 
 <p>
-Through academic projects, I have worked on systems analysis,
-requirements gathering, process modeling, web development,
-dashboards, and data-informed decision-making.
+
+Through university projects, I have worked with requirements analysis, process modeling, dashboards,
+databases, web development, and business-focused digital projects.
+
 </p>
 
-<p>
-I enjoy connecting business needs with technology and turning ideas
-into clear, practical solutions.
-</p>
-
-</div>
 
 
-<div class="cards">
+<div class="info-grid">
 
-<div class="card">
-<div class="card-icon">📊</div>
-<div>
-<h3>Data Analysis</h3>
-<p>Using data and visualization to uncover insights and support decisions.</p>
-</div>
-</div>
 
-<div class="card">
-<div class="card-icon">🔎</div>
-<div>
-<h3>Systems Analysis</h3>
-<p>Understanding requirements, processes, and how systems can solve business needs.</p>
-</div>
-</div>
+<div class="info">
 
-<div class="card">
-<div class="card-icon">💡</div>
-<div>
-<h3>Digital Business</h3>
-<p>Exploring practical digital solutions that connect technology with business value.</p>
-</div>
-</div>
+<span>University</span>
+
+<strong>
+King Saud University
+</strong>
 
 </div>
 
 
 <div class="info">
 
-<div>
-<small>📍 LOCATION</small>
-<strong>Riyadh, Saudi Arabia</strong>
-</div>
+<span>Major</span>
 
-<div>
-<small>🏛️ UNIVERSITY</small>
-<strong>King Saud University</strong>
-</div>
-
-<div>
-<small>📚 MAJOR</small>
-<strong>Management Information Systems</strong>
-</div>
-
-<div>
-<small>🎓 STATUS</small>
-<strong>Final-Year Student</strong>
-</div>
+<strong>
+Management Information Systems
+</strong>
 
 </div>
 
+
+<div class="info">
+
+<span>Status</span>
+
+<strong>
+Final-Year Student
+</strong>
+
 </div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="education" class="pale">
+
+<!-- PROJECTS -->
+
+<section id="work" class="projects">
 
 <div class="container">
 
-<div class="label">🎓 &nbsp; EDUCATION</div>
 
-<h2 class="title">
-Building a foundation in <em>business and technology.</em>
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+02 — Selected Work
+</div>
+
+<h2>
+Projects I have built.
 </h2>
 
+</div>
 
-<div class="education">
 
-<div class="years">2022 — 2027</div>
+<p class="section-intro">
 
-<p>King Saud University</p>
+A selection of academic work across systems analysis, data visualization, web development, and digital business.
+
+</p>
+
+</div>
+
+
+
+<div class="project-grid">
+
+
+
+<article class="project featured">
+
+<div class="project-number">
+01 / SYSTEMS ANALYSIS
+</div>
 
 <h3>
-Management<br>
-Information<br>
-Systems
+Order Management System
 </h3>
 
-<div class="degree">
-Bachelor of Science in Business Administration
-</div>
+<p>
 
-<span class="date">
-August 2022 — January 2027
-</span>
+Designed a proposed order management solution for a local abaya brand, focusing on order flow,
+customer needs, payment, shipping, and system processes.
 
-</div>
+</p>
 
+<div class="tags">
 
-<div class="focus">
+<span class="tag">Requirements</span>
 
-<small>ACADEMIC FOCUS</small>
+<span class="tag">DFD</span>
 
-<div>📝 Requirements Analysis</div>
-<div>🔄 Process Modeling</div>
-<div>🧩 Systems Analysis</div>
-<div>📊 Data Analysis & Visualization</div>
-<div>💬 Stakeholder Communication</div>
+<span class="tag">Process Modeling</span>
+
+<span class="tag">Systems Analysis</span>
 
 </div>
 
+</article>
+
+
+
+<article class="project">
+
+<div class="project-number">
+02 / BPM
 </div>
+
+<h3>
+Process Analysis & BPMN
+</h3>
+
+<p>
+
+Modeled business processes using BPMN to represent activities, decisions, events,
+and process flow clearly.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">BPMN</span>
+
+<span class="tag">Process Analysis</span>
+
+</div>
+
+</article>
+
+
+
+<article class="project">
+
+<div class="project-number">
+03 / WEB
+</div>
+
+<h3>
+Allure Salon Web System
+</h3>
+
+<p>
+
+Developed a web-based salon system with user pages, registration, login,
+booking, services, and profile management.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">ASP.NET</span>
+
+<span class="tag">HTML</span>
+
+<span class="tag">CSS</span>
+
+<span class="tag">Visual Studio</span>
+
+</div>
+
+</article>
+
+
+
+<article class="project">
+
+<div class="project-number">
+04 / DATA
+</div>
+
+<h3>
+Power BI Dashboard
+</h3>
+
+<p>
+
+Created interactive dashboards and KPI visualizations to transform datasets
+into clear business insights and comparisons.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">Power BI</span>
+
+<span class="tag">KPI</span>
+
+<span class="tag">Data Analysis</span>
+
+</div>
+
+</article>
+
+
+
+<article class="project">
+
+<div class="project-number">
+05 / DIGITAL BUSINESS
+</div>
+
+<h3>
+Digital Marketing Project
+</h3>
+
+<p>
+
+Analyzed digital environments, customer-focused marketing elements,
+social media, and digital business opportunities.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">Digital Marketing</span>
+
+<span class="tag">4C</span>
+
+<span class="tag">Social Media</span>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="projects" class="pale">
+
+<!-- SKILLS -->
+
+<section id="skills">
 
 <div class="container">
 
-<div class="label">🚀 &nbsp; SELECTED WORK</div>
 
-<h2 class="title">
-Academic projects, <em>made practical.</em>
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+03 — Toolkit
+</div>
+
+<h2>
+What I work with.
 </h2>
 
-<p class="hero-text">
-Projects spanning systems analysis, web development,
-process modeling, digital business, and data-informed decisions.
+</div>
+
+
+<p class="section-intro">
+
+A growing toolkit combining technical, analytical, and business skills.
+
 </p>
 
-
-<div class="project">
-
-<div class="project-top">
-<span>01</span>
-<span>🔄</span>
-</div>
-
-<small>BUSINESS PROCESS MANAGEMENT</small>
-
-<h3>Process Analysis & BPMN Project</h3>
-
-<p>
-Analyzed a business process, modeled the current workflow,
-identified unnecessary steps, and proposed an improved process using BPMN.
-</p>
-
-<div class="tags">
-<span>BPMN</span>
-<span>Process Analysis</span>
-<span>Process Redesign</span>
-</div>
-
-<a href="#">View Project ↗</a>
-
 </div>
 
 
-<div class="project">
 
-<div class="project-top">
-<span>02</span>
-<span>🛍️</span>
-</div>
-
-<small>SYSTEMS ANALYSIS & DESIGN</small>
-
-<h3>Order Management System</h3>
-
-<p>
-Designed a proposed order management solution for a local abaya business,
-covering orders, payments, shipping, users, and system processes.
-</p>
-
-<div class="tags">
-<span>Systems Analysis</span>
-<span>DFD</span>
-<span>Database</span>
-<span>Requirements</span>
-</div>
-
-<a href="#">View Project ↗</a>
-
-</div>
+<div class="skills-grid">
 
 
-<div class="project">
 
-<div class="project-top">
-<span>03</span>
-<span>💻</span>
-</div>
+<div class="skill-box">
 
-<small>WEB DEVELOPMENT</small>
+<h3>
+Data & Analytics
+</h3>
 
-<h3>Allure Salon Web System</h3>
+<div class="skill-list">
 
-<p>
-Developed a web-based salon system with structured navigation,
-user pages, authentication, profile management, services,
-and booking functionality.
-</p>
+<span class="skill">Power BI</span>
 
-<div class="tags">
-<span>ASP.NET</span>
-<span>HTML</span>
-<span>CSS</span>
-<span>Visual Studio</span>
-<span>GitHub</span>
-</div>
+<span class="skill">Tableau</span>
 
-<a href="#">View Project ↗</a>
+<span class="skill">Data Analysis</span>
 
-</div>
+<span class="skill">Dashboards</span>
 
-
-<div class="project">
-
-<div class="project-top">
-<span>04</span>
-<span>📊</span>
-</div>
-
-<small>DATA ANALYTICS</small>
-
-<h3>Power BI Dashboard</h3>
-
-<p>
-Built interactive KPI cards, charts, and slicers to transform
-a dataset into a clear dashboard for data-driven analysis.
-</p>
-
-<div class="tags">
-<span>Power BI</span>
-<span>KPI</span>
-<span>Data Visualization</span>
-<span>Dashboard</span>
-</div>
-
-<a href="#">View Project ↗</a>
-
-</div>
-
-
-<div class="project">
-
-<div class="project-top">
-<span>05</span>
-<span>📣</span>
-</div>
-
-<small>DIGITAL BUSINESS</small>
-
-<h3>Digital Marketing Project</h3>
-
-<p>
-Applied digital marketing frameworks to analyze the digital environment,
-customer needs, social media, and opportunities for an online business.
-</p>
-
-<div class="tags">
-<span>Digital SWOT</span>
-<span>4C</span>
-<span>E-Marketing</span>
-<span>Social Media</span>
-</div>
-
-<a href="#">View Project ↗</a>
+<span class="skill">KPI Development</span>
 
 </div>
 
 </div>
+
+
+
+<div class="skill-box">
+
+<h3>
+Information Systems
+</h3>
+
+<div class="skill-list">
+
+<span class="skill">SQL</span>
+
+<span class="skill">Database Concepts</span>
+
+<span class="skill">Systems Analysis</span>
+
+<span class="skill">DFD</span>
+
+<span class="skill">BPMN</span>
+
+<span class="skill">Requirements</span>
+
+</div>
+
+</div>
+
+
+
+<div class="skill-box">
+
+<h3>
+Web & Development
+</h3>
+
+<div class="skill-list">
+
+<span class="skill">HTML</span>
+
+<span class="skill">CSS</span>
+
+<span class="skill">ASP.NET</span>
+
+<span class="skill">Visual Studio</span>
+
+<span class="skill">GitHub</span>
+
+</div>
+
+</div>
+
+
+
+<div class="skill-box">
+
+<h3>
+Business
+</h3>
+
+<div class="skill-list">
+
+<span class="skill">Project Management</span>
+
+<span class="skill">Digital Marketing</span>
+
+<span class="skill">Process Improvement</span>
+
+<span class="skill">Communication</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="skills" class="pale">
 
-<div class="container">
-
-<div class="label">🧰 &nbsp; SKILLS</div>
-
-<h2 class="title">
-Tools I use to <em>build and analyze.</em>
-</h2>
-
-<div class="skills">
-
-<div class="skill">
-<h3>Data & Analytics</h3>
-<p>
-Power BI · Tableau · Data Analysis · Dashboards · KPI Development
-</p>
-</div>
-
-<div class="skill">
-<h3>Information Systems</h3>
-<p>
-SQL · Database Concepts · Systems Analysis · DFD · BPMN · Requirements
-</p>
-</div>
-
-<div class="skill">
-<h3>Web & Development</h3>
-<p>
-HTML · CSS · ASP.NET · Visual Studio · GitHub
-</p>
-</div>
-
-<div class="skill">
-<h3>Business</h3>
-<p>
-Project Management · Digital Marketing · Process Improvement · Communication
-</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
+<!-- CONTACT -->
 
 <section id="contact">
 
 <div class="container">
 
-<div class="label">📩 &nbsp; CONTACT</div>
 
-<h2 class="title">
-Let’s connect.
+<div class="contact">
+
+
+<div>
+
+<div class="kicker">
+04 — Contact
+</div>
+
+<h2>
+Let's build something useful.
 </h2>
 
-<p class="contact-text">
-I’m interested in opportunities where I can learn, contribute,
-and grow across data, technology, information systems, and business.
+<p>
+
+I am currently open to professional opportunities, internships,
+and experiences where I can grow, contribute, and apply my MIS skills.
+
 </p>
 
-<div class="buttons">
+</div>
 
-<a class="btn primary" href="mailto:YOUR_EMAIL@example.com">
-Email Me ↗
+
+
+<div class="contact-links">
+
+
+<a class="contact-link"
+href="mailto:YOUR_EMAIL@example.com">
+
+Email ↗
+
 </a>
 
-<a class="btn secondary" href="https://www.linkedin.com/" target="_blank">
+
+<a class="contact-link"
+href="https://www.linkedin.com/"
+target="_blank">
+
 LinkedIn ↗
+
 </a>
 
-<a class="btn secondary" href="https://github.com/" target="_blank">
+
+<a class="contact-link"
+href="https://github.com/najlalsaif"
+target="_blank">
+
 GitHub ↗
+
 </a>
 
+
+</div>
+
+
 </div>
 
 </div>
+
 </section>
 
 
+
+<!-- FOOTER -->
+
+<div class="container">
+
 <footer>
-<span>Najla Alsaif</span>
-<span>© 2026 · Personal Portfolio</span>
+
+<span>
+© 2026 Najla Alsaif
+</span>
+
+<span>
+Management Information Systems
+</span>
+
 </footer>
 
+</div>
+
+
 </body>
+
 </html>
