@@ -83,6 +83,8 @@ body::before {
 }
 
 
+/* Subtle grid */
+
 body::after {
     content: "";
     position: fixed;
@@ -162,29 +164,33 @@ nav {
 }
 
 
-/* ================= HERO ================= */
+/* ================= CREATIVE HERO ================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: 88vh;
 
     display: flex;
     align-items: center;
 
-    padding: 135px 7% 90px;
+    padding: 125px 7% 70px;
 
     position: relative;
     overflow: hidden;
 }
 
+
+/* Large soft glow */
+
 .hero::before {
     content: "";
+
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
 
     right: -180px;
-    top: 100px;
+    top: 20px;
 
     border-radius: 50%;
 
@@ -192,110 +198,164 @@ nav {
         radial-gradient(
             circle,
             rgba(121,174,184,0.15),
-            rgba(121,174,184,0.035) 45%,
+            rgba(121,174,184,0.055) 42%,
             transparent 70%
         );
 
-    filter: blur(4px);
+    filter: blur(3px);
 }
+
+
+/* Decorative lower circle */
 
 .hero::after {
     content: "";
+
     position: absolute;
 
-    width: 240px;
-    height: 240px;
+    width: 360px;
+    height: 360px;
 
-    left: -90px;
-    bottom: 25px;
+    left: -220px;
+    bottom: -180px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(121,174,184,0.12);
+    border: 1px solid rgba(121,174,184,0.13);
 
     box-shadow:
-        0 0 0 28px rgba(121,174,184,0.022),
-        0 0 0 56px rgba(121,174,184,0.014);
+        0 0 0 35px rgba(121,174,184,0.025),
+        0 0 0 70px rgba(121,174,184,0.015);
 }
 
+
 .hero-content {
-    max-width: 1200px;
-    margin: auto;
     width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(360px, 0.85fr);
+
+    gap: 55px;
+
+    align-items: center;
 
     position: relative;
+
     z-index: 2;
 }
 
 
-/* Hero badges */
+/* ================= HERO LEFT ================= */
+
+.hero-left {
+    position: relative;
+    z-index: 3;
+}
+
 
 .hero-badges {
     display: flex;
+
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 28px;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
 }
+
 
 .hero-badge {
     display: inline-flex;
+
     align-items: center;
 
-    padding: 9px 16px;
+    padding: 8px 14px;
 
-    border: 1px solid rgba(121,174,184,0.28);
+    border: 1px solid rgba(121,174,184,0.3);
+
     border-radius: 30px;
 
-    background: rgba(255,255,255,0.62);
+    background: rgba(255,255,255,0.68);
 
     color: var(--text);
 
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
+    font-size: 9px;
 
-    backdrop-filter: blur(8px);
+    font-weight: 600;
+
+    letter-spacing: 1.1px;
+
+    backdrop-filter: blur(10px);
 }
 
 
-/* Hero */
-
 .hero h1 {
-    font-size: clamp(46px, 7vw, 78px);
-    line-height: 1;
-    letter-spacing: -2.5px;
+    font-size: clamp(55px, 7vw, 88px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3.5px;
 
     color: var(--navy);
 
     margin-bottom: 20px;
+
+    font-weight: 700;
 }
 
+
+.hero h1 span {
+    color: var(--navy);
+}
+
+
 .hero h2 {
-    font-size: clamp(18px, 2.5vw, 26px);
+    font-size: clamp(19px, 2.5vw, 27px);
+
     font-weight: 500;
 
     color: var(--cyan-dark);
 
     margin-bottom: 20px;
+
+    max-width: 650px;
 }
 
+
 .hero p {
-    max-width: 700px;
+    max-width: 680px;
 
     font-size: 15px;
+
+    line-height: 1.75;
+
     color: var(--muted);
 
     margin-bottom: 28px;
 }
 
+
 .hero-buttons {
     display: flex;
+
     gap: 12px;
+
     flex-wrap: wrap;
 }
 
+
 .btn {
-    display: inline-block;
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     padding: 11px 21px;
 
@@ -304,31 +364,288 @@ nav {
     text-decoration: none;
 
     font-size: 13px;
+
     font-weight: 600;
 
-    transition: 0.3s;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
+
 
 .btn-primary {
     background: var(--navy);
+
     color: white;
+
+    box-shadow:
+        0 8px 20px rgba(29,48,66,0.13);
 }
+
 
 .btn-primary:hover {
     background: var(--cyan-dark);
-    transform: translateY(-2px);
+
+    transform: translateY(-3px);
 }
+
 
 .btn-outline {
     border: 1px solid var(--border);
+
     color: var(--navy);
-    background: rgba(255,255,255,0.65);
+
+    background: rgba(255,255,255,0.7);
 }
+
 
 .btn-outline:hover {
     border-color: var(--cyan);
+
     color: var(--cyan-dark);
-    transform: translateY(-2px);
+
+    transform: translateY(-3px);
+}
+
+
+/* ================= HERO VISUAL ================= */
+
+.hero-visual {
+    height: 470px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Main orbit */
+
+.visual-orbit {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(121,174,184,0.25);
+
+    transform: rotate(-18deg);
+}
+
+
+.visual-orbit::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(121,174,184,0.18);
+}
+
+
+/* Center */
+
+.visual-center {
+    position: absolute;
+
+    width: 165px;
+    height: 165px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.95),
+            rgba(234,245,246,0.88)
+        );
+
+    border: 1px solid rgba(121,174,184,0.3);
+
+    box-shadow:
+        0 20px 50px rgba(29,48,66,0.08),
+        inset 0 0 30px rgba(121,174,184,0.06);
+
+    z-index: 3;
+}
+
+
+.visual-center span {
+    font-size: 42px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+
+    color: var(--navy);
+}
+
+
+.visual-center small {
+    margin-top: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--cyan-dark);
+
+    text-align: center;
+}
+
+
+/* Floating cards */
+
+.floating-card {
+    position: absolute;
+
+    min-width: 155px;
+
+    padding: 14px 16px;
+
+    background: rgba(255,255,255,0.86);
+
+    border: 1px solid rgba(220,233,234,0.9);
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 14px 35px rgba(29,48,66,0.07);
+
+    z-index: 4;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.floating-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(29,48,66,0.1);
+}
+
+
+.floating-card span {
+    display: block;
+
+    font-size: 8px;
+
+    color: var(--cyan-dark);
+
+    letter-spacing: 1px;
+
+    margin-bottom: 6px;
+}
+
+
+.floating-card strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 2px;
+}
+
+
+.floating-card small {
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* Positions */
+
+.card-business {
+    top: 45px;
+
+    left: 5px;
+}
+
+
+.card-data {
+    right: -5px;
+
+    top: 155px;
+}
+
+
+.card-tech {
+    bottom: 50px;
+
+    left: 50px;
+}
+
+
+/* Connecting lines */
+
+.visual-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(121,174,184,0.4),
+            transparent
+        );
+
+    transform-origin: left center;
+
+    z-index: 1;
+}
+
+
+.line-one {
+    width: 110px;
+
+    top: 115px;
+
+    left: 125px;
+
+    transform: rotate(25deg);
+}
+
+
+.line-two {
+    width: 100px;
+
+    bottom: 125px;
+
+    right: 115px;
+
+    transform: rotate(-28deg);
 }
 
 
@@ -346,9 +663,13 @@ section {
 
 .section-label {
     color: var(--cyan-dark);
+
     font-size: 11px;
+
     font-weight: 700;
+
     letter-spacing: 1.8px;
+
     text-transform: uppercase;
 
     margin-bottom: 8px;
@@ -356,16 +677,23 @@ section {
 
 .section-title {
     font-size: clamp(29px, 4vw, 42px);
+
     font-weight: 650;
+
     color: var(--navy);
+
     line-height: 1.15;
+
     margin-bottom: 18px;
 }
 
 .section-intro {
     max-width: 700px;
+
     color: var(--muted);
+
     font-size: 14px;
+
     margin-bottom: 38px;
 }
 
@@ -374,32 +702,43 @@ section {
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 60px;
+
     align-items: start;
 }
 
 .about-highlight {
     font-size: 24px;
+
     line-height: 1.35;
+
     color: var(--navy);
+
     font-weight: 500;
 }
 
 .about-text p {
     margin-bottom: 15px;
+
     color: var(--muted);
+
     font-size: 14px;
 }
 
 .info-list {
     margin-top: 23px;
+
     display: grid;
+
     gap: 8px;
 }
 
 .info-item {
     display: flex;
+
     justify-content: space-between;
 
     padding: 11px 0;
@@ -415,6 +754,7 @@ section {
 
 .info-item span:last-child {
     color: var(--navy);
+
     font-weight: 600;
 }
 
@@ -432,7 +772,9 @@ section {
 
 .projects-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 18px;
 }
 
@@ -450,9 +792,11 @@ section {
     min-height: 300px;
 
     display: flex;
+
     flex-direction: column;
 
-    box-shadow: 0 7px 24px rgba(29,48,66,0.04);
+    box-shadow:
+        0 7px 24px rgba(29,48,66,0.04);
 
     transition:
         transform 0.3s ease,
@@ -488,8 +832,11 @@ section {
 
 .project-number {
     font-size: 10px;
+
     color: var(--cyan-dark);
+
     font-weight: 700;
+
     letter-spacing: 1px;
 
     margin-bottom: 25px;
@@ -497,8 +844,11 @@ section {
 
 .project-card h3 {
     color: var(--navy);
+
     font-size: 19px;
+
     font-weight: 600;
+
     line-height: 1.3;
 
     margin-bottom: 11px;
@@ -506,7 +856,9 @@ section {
 
 .project-card p {
     color: var(--muted);
+
     font-size: 13px;
+
     line-height: 1.55;
 
     margin-bottom: 18px;
@@ -514,7 +866,9 @@ section {
 
 .project-tags {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 6px;
 
     margin-bottom: 15px;
@@ -536,7 +890,9 @@ section {
     margin-top: auto;
 
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 14px;
 }
 
@@ -546,6 +902,7 @@ section {
     text-decoration: none;
 
     font-size: 12px;
+
     font-weight: 600;
 
     transition: 0.3s;
@@ -553,6 +910,7 @@ section {
 
 .project-link:hover {
     color: var(--navy);
+
     transform: translateX(3px);
 }
 
@@ -589,14 +947,19 @@ section {
 
 .cert-card:hover {
     transform: translateY(-4px);
+
     border-color: rgba(121,174,184,0.4);
+
     box-shadow: var(--shadow);
 }
 
 .cert-number {
     font-size: 10px;
+
     color: var(--cyan-dark);
+
     font-weight: 700;
+
     letter-spacing: 1px;
 
     margin-bottom: 28px;
@@ -604,8 +967,11 @@ section {
 
 .cert-card h3 {
     color: var(--navy);
+
     font-size: 17px;
+
     font-weight: 600;
+
     line-height: 1.35;
 
     margin-bottom: 7px;
@@ -613,6 +979,7 @@ section {
 
 .cert-card p {
     color: var(--muted);
+
     font-size: 12px;
 }
 
@@ -635,6 +1002,15 @@ section {
 
 /* ================= CONTINUOUS LEARNING ================= */
 
+.learning {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(248,251,251,0.3),
+            rgba(234,245,246,0.25)
+        );
+}
+
 .learning-box {
     border: 1px solid var(--border);
 
@@ -649,11 +1025,13 @@ section {
             rgba(234,245,246,0.5)
         );
 
-    box-shadow: 0 7px 24px rgba(29,48,66,0.035);
+    box-shadow:
+        0 7px 24px rgba(29,48,66,0.035);
 }
 
 .learning-list {
     display: grid;
+
     gap: 0;
 }
 
@@ -675,7 +1053,9 @@ section {
 
 .learning-item h3 {
     color: var(--navy);
+
     font-size: 15px;
+
     font-weight: 600;
 
     margin-bottom: 3px;
@@ -683,6 +1063,7 @@ section {
 
 .learning-item p {
     color: var(--muted);
+
     font-size: 12px;
 }
 
@@ -701,7 +1082,7 @@ section {
 }
 
 
-/* ================= VOLUNTEERING ================= */
+/* ================= INVOLVEMENT ================= */
 
 .involvement {
     background: rgba(234,245,246,0.22);
@@ -731,6 +1112,7 @@ section {
     color: var(--cyan-dark);
 
     font-size: 11px;
+
     font-weight: 600;
 }
 
@@ -738,6 +1120,7 @@ section {
     color: var(--navy);
 
     font-size: 17px;
+
     font-weight: 600;
 
     margin-bottom: 3px;
@@ -747,6 +1130,7 @@ section {
     color: var(--cyan-dark);
 
     font-size: 12px;
+
     font-weight: 500;
 
     margin-bottom: 7px;
@@ -762,6 +1146,15 @@ section {
 
 
 /* ================= SKILLS ================= */
+
+.skills {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(234,245,246,0.22),
+            rgba(248,251,251,0.5)
+        );
+}
 
 .skills-grid {
     display: grid;
@@ -779,12 +1172,23 @@ section {
     border: 1px solid var(--border);
 
     border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.skill-box:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow);
+
+    border-color: rgba(121,174,184,0.35);
 }
 
 .skill-box h3 {
     color: var(--navy);
 
     font-size: 15px;
+
     font-weight: 600;
 
     margin-bottom: 15px;
@@ -838,6 +1242,7 @@ section {
     color: var(--navy);
 
     font-size: 31px;
+
     font-weight: 600;
 
     line-height: 1.2;
@@ -847,17 +1252,21 @@ section {
 
 .contact-box p {
     color: var(--muted);
+
     font-size: 13px;
 }
 
 .contact-links {
     display: grid;
+
     gap: 11px;
 }
 
 .contact-link {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 
     padding: 10px 0;
@@ -899,6 +1308,46 @@ footer {
         gap: 13px;
     }
 
+    .hero {
+        min-height: auto;
+
+        padding-top: 120px;
+
+        padding-bottom: 70px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .hero-visual {
+        height: 390px;
+
+        margin-top: 5px;
+    }
+
+    .visual-orbit {
+        width: 300px;
+
+        height: 300px;
+    }
+
+    .card-business {
+        left: 8%;
+    }
+
+    .card-data {
+        right: 5%;
+    }
+
+    .card-tech {
+        left: 14%;
+
+        bottom: 25px;
+    }
+
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -909,11 +1358,13 @@ footer {
 
     .about-grid {
         grid-template-columns: 1fr;
+
         gap: 35px;
     }
 
     .involvement-item {
         grid-template-columns: 1fr;
+
         gap: 7px;
     }
 }
@@ -934,21 +1385,71 @@ footer {
     }
 
     .hero {
-        padding: 120px 6% 70px;
+        padding: 115px 6% 55px;
     }
 
     .hero h1 {
         font-size: 52px;
-        letter-spacing: -2px;
+
+        letter-spacing: -2.5px;
     }
 
     .hero-badges {
-        gap: 8px;
+        gap: 7px;
     }
 
     .hero-badge {
-        font-size: 9px;
-        padding: 8px 12px;
+        font-size: 8px;
+
+        padding: 8px 11px;
+    }
+
+    .hero-visual {
+        height: 330px;
+
+        transform: scale(0.9);
+
+        transform-origin: center;
+    }
+
+    .visual-orbit {
+        width: 270px;
+
+        height: 270px;
+    }
+
+    .visual-center {
+        width: 135px;
+
+        height: 135px;
+    }
+
+    .visual-center span {
+        font-size: 34px;
+    }
+
+    .floating-card {
+        min-width: 135px;
+
+        padding: 11px 13px;
+    }
+
+    .card-business {
+        left: 0;
+
+        top: 30px;
+    }
+
+    .card-data {
+        right: 0;
+
+        top: 125px;
+    }
+
+    .card-tech {
+        left: 25px;
+
+        bottom: 15px;
     }
 
     .projects-grid {
@@ -969,6 +1470,7 @@ footer {
 
     .learning-item {
         grid-template-columns: 1fr;
+
         gap: 8px;
     }
 
@@ -1049,48 +1551,131 @@ footer {
 
     <div class="hero-content">
 
-        <div class="hero-badges">
 
-            <div class="hero-badge">
-                SENIOR MIS STUDENT · KING SAUD UNIVERSITY
+        <!-- LEFT SIDE -->
+
+        <div class="hero-left">
+
+            <div class="hero-badges">
+
+                <div class="hero-badge">
+                    SENIOR MIS STUDENT · KING SAUD UNIVERSITY
+                </div>
+
+                <div class="hero-badge">
+                    EXPECTED GRADUATION · JANUARY 2028
+                </div>
+
             </div>
 
-            <div class="hero-badge">
-                EXPECTED GRADUATION · JANUARY 2028
+
+            <h1>
+                Najla Alsaif<span>.</span>
+            </h1>
+
+
+            <h2>
+                Senior Management Information Systems Student
+            </h2>
+
+
+            <p>
+                I'm a Senior Management Information Systems student
+                interested in exploring the intersection of business,
+                technology, data, and digital solutions. I enjoy
+                understanding business needs, solving problems,
+                collaborating with others, and turning ideas into
+                practical solutions.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#about"
+                    class="btn btn-primary"
+                >
+                    About Me ↗
+                </a>
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+                    Contact Me
+                </a>
+
             </div>
 
         </div>
 
 
-        <h1>
-            Najla Alsaif.
-        </h1>
+        <!-- RIGHT SIDE CREATIVE VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="visual-orbit"></div>
 
 
-        <h2>
-            Senior Management Information Systems Student
-        </h2>
+            <div class="visual-center">
+
+                <span>MIS</span>
+
+                <small>
+                    BUSINESS × TECHNOLOGY
+                </small>
+
+            </div>
 
 
-        <p>
-            I'm a Senior Management Information Systems student
-            interested in exploring the intersection of business,
-            technology, data, and digital solutions. I enjoy
-            understanding business needs, solving problems,
-            collaborating with others, and turning ideas into
-            practical solutions.
-        </p>
+            <div class="floating-card card-business">
+
+                <span>01</span>
+
+                <strong>
+                    Business
+                </strong>
+
+                <small>
+                    Analysis & Strategy
+                </small>
+
+            </div>
 
 
-        <div class="hero-buttons">
+            <div class="floating-card card-data">
 
-            <a href="#about" class="btn btn-primary">
-                About Me ↗
-            </a>
+                <span>02</span>
 
-            <a href="#contact" class="btn btn-outline">
-                Contact Me ✉
-            </a>
+                <strong>
+                    Data
+                </strong>
+
+                <small>
+                    Analysis & Insights
+                </small>
+
+            </div>
+
+
+            <div class="floating-card card-tech">
+
+                <span>03</span>
+
+                <strong>
+                    Technology
+                </strong>
+
+                <small>
+                    Digital Solutions
+                </small>
+
+            </div>
+
+
+            <div class="visual-line line-one"></div>
+
+            <div class="visual-line line-two"></div>
 
         </div>
 
@@ -1109,7 +1694,9 @@ footer {
             About Me
         </div>
 
+
         <div class="about-grid">
+
 
             <div>
 
@@ -1152,17 +1739,28 @@ footer {
 
                     <div class="info-item">
                         <span>University</span>
-                        <span>King Saud University</span>
+
+                        <span>
+                            King Saud University
+                        </span>
                     </div>
+
 
                     <div class="info-item">
                         <span>Major</span>
-                        <span>Management Information Systems</span>
+
+                        <span>
+                            Management Information Systems
+                        </span>
                     </div>
+
 
                     <div class="info-item">
                         <span>Academic Level</span>
-                        <span>Fourth-Year Student</span>
+
+                        <span>
+                            Fourth-Year Student
+                        </span>
                     </div>
 
                 </div>
@@ -1182,13 +1780,16 @@ footer {
 
     <div class="section-container">
 
+
         <div class="section-label">
             Selected Work
         </div>
 
+
         <h2 class="section-title">
             Projects
         </h2>
+
 
         <p class="section-intro">
             A selection of academic and practical projects
@@ -1208,9 +1809,11 @@ footer {
                     01 / PROJECT
                 </div>
 
+
                 <h3>
                     Order Management System
                 </h3>
+
 
                 <p>
                     Designed a proposed digital order management
@@ -1219,11 +1822,23 @@ footer {
                     customer management.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>Business Analysis</span>
-                    <span>Digital Solutions</span>
-                    <span>System Design</span>
+
+                    <span>
+                        Business Analysis
+                    </span>
+
+                    <span>
+                        Digital Solutions
+                    </span>
+
+                    <span>
+                        System Design
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1248,9 +1863,11 @@ footer {
                     02 / PROJECT
                 </div>
 
+
                 <h3>
                     Allure Salon Web System
                 </h3>
+
 
                 <p>
                     Designed and developed a web-based salon
@@ -1259,11 +1876,23 @@ footer {
                     management, and user interaction.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>ASP.NET</span>
-                    <span>HTML & CSS</span>
-                    <span>Web Development</span>
+
+                    <span>
+                        ASP.NET
+                    </span>
+
+                    <span>
+                        HTML & CSS
+                    </span>
+
+                    <span>
+                        Web Development
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1274,6 +1903,7 @@ footer {
                     >
                         View Project →
                     </a>
+
 
                     <a
                         href="PASTE_ALLURE_WEBSITE_LINK_HERE"
@@ -1296,9 +1926,11 @@ footer {
                     03 / PROJECT
                 </div>
 
+
                 <h3>
                     Decision Support System
                 </h3>
+
 
                 <p>
                     Developed a data-driven solution using
@@ -1307,11 +1939,23 @@ footer {
                     levels, and factors affecting traffic delays.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>Power BI</span>
-                    <span>Data Analysis</span>
-                    <span>DSS</span>
+
+                    <span>
+                        Power BI
+                    </span>
+
+                    <span>
+                        Data Analysis
+                    </span>
+
+                    <span>
+                        DSS
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1336,9 +1980,11 @@ footer {
                     04 / PROJECT
                 </div>
 
+
                 <h3>
                     Database System
                 </h3>
+
 
                 <p>
                     Designed a relational database system covering
@@ -1347,11 +1993,23 @@ footer {
                     staff management, and hall administration.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>SQL</span>
-                    <span>Database Design</span>
-                    <span>EER</span>
+
+                    <span>
+                        SQL
+                    </span>
+
+                    <span>
+                        Database Design
+                    </span>
+
+                    <span>
+                        EER
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1376,9 +2034,11 @@ footer {
                     05 / PROJECT
                 </div>
 
+
                 <h3>
                     Digital Marketing Project
                 </h3>
+
 
                 <p>
                     Explored digital environments, customer-focused
@@ -1387,11 +2047,23 @@ footer {
                     project-based work.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>Digital Marketing</span>
-                    <span>Social Media</span>
-                    <span>Strategy</span>
+
+                    <span>
+                        Digital Marketing
+                    </span>
+
+                    <span>
+                        Social Media
+                    </span>
+
+                    <span>
+                        Strategy
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1416,9 +2088,11 @@ footer {
                     06 / PROJECT
                 </div>
 
+
                 <h3>
                     Process Analysis & BPMN
                 </h3>
+
 
                 <p>
                     Analyzed business processes and translated
@@ -1427,11 +2101,23 @@ footer {
                     decisions, and process interactions.
                 </p>
 
+
                 <div class="project-tags">
-                    <span>BPMN</span>
-                    <span>Process Analysis</span>
-                    <span>Business Processes</span>
+
+                    <span>
+                        BPMN
+                    </span>
+
+                    <span>
+                        Process Analysis
+                    </span>
+
+                    <span>
+                        Business Processes
+                    </span>
+
                 </div>
+
 
                 <div class="project-links">
 
@@ -1456,21 +2142,27 @@ footer {
 
 <!-- ================= CERTIFICATIONS ================= -->
 
-<section id="certifications" class="certifications">
+<section
+    id="certifications"
+    class="certifications"
+>
 
     <div class="section-container">
+
 
         <div class="section-label">
             Certifications
         </div>
 
+
         <h2 class="section-title">
             Certifications & Credentials
         </h2>
 
+
         <p class="section-intro">
-            Professional certifications and structured learning
-            that support my academic and technical development.
+            Professional and technical certifications that
+            complement my academic background.
         </p>
 
 
@@ -1485,16 +2177,19 @@ footer {
                     01 / CERTIFICATION
                 </div>
 
+
                 <h3>
-                    Data Analysis Bootcamp
+                    Introduction to SQL
                 </h3>
 
+
                 <p>
-                    LearnX
+                    Simplilearn
                 </p>
 
+
                 <span>
-                    April 2026
+                    SQL
                 </span>
 
             </div>
@@ -1508,16 +2203,19 @@ footer {
                     02 / CERTIFICATION
                 </div>
 
+
                 <h3>
-                    Introduction to SQL
+                    General-Purpose Programming Track
                 </h3>
 
+
                 <p>
-                    Simplilearn
+                    Python Institute®
                 </p>
 
+
                 <span>
-                    Professional Development
+                    Python
                 </span>
 
             </div>
@@ -1531,16 +2229,19 @@ footer {
                     03 / CERTIFICATION
                 </div>
 
+
                 <h3>
-                    General-Purpose Programming Track
+                    Tebyan Career Guidance Program
                 </h3>
 
+
                 <p>
-                    Python Institute®
+                    Nuzmy
                 </p>
 
+
                 <span>
-                    Python
+                    Career Development
                 </span>
 
             </div>
@@ -1554,16 +2255,19 @@ footer {
                     04 / CERTIFICATION
                 </div>
 
+
                 <h3>
-                    Tebyan Career Guidance Program
+                    Data Analysis Bootcamp
                 </h3>
 
+
                 <p>
-                    Nuzmy
+                    LearnX
                 </p>
 
+
                 <span>
-                    Career Development
+                    April 2026
                 </span>
 
             </div>
@@ -1577,22 +2281,28 @@ footer {
 
 <!-- ================= CONTINUOUS LEARNING ================= -->
 
-<section id="learning">
+<section
+    id="learning"
+    class="learning"
+>
 
     <div class="section-container">
+
 
         <div class="section-label">
             Additional Training
         </div>
 
+
         <h2 class="section-title">
             Continuous Learning
         </h2>
 
+
         <p class="section-intro">
-            Bootcamps, training programs, workshops, and
-            additional learning experiences that complement
-            my academic background.
+            Bootcamps, programs, workshops, and additional
+            learning experiences that support my professional
+            and academic development.
         </p>
 
 
@@ -1601,9 +2311,12 @@ footer {
             <div class="learning-list">
 
 
+                <!-- LEARNING 1 -->
+
                 <div class="learning-item">
 
                     <div>
+
                         <h3>
                             Data Analysis Bootcamp
                         </h3>
@@ -1611,6 +2324,7 @@ footer {
                         <p>
                             LearnX · April 2026
                         </p>
+
                     </div>
 
                     <span class="learning-type">
@@ -1620,9 +2334,58 @@ footer {
                 </div>
 
 
+                <!-- LEARNING 2 -->
+
                 <div class="learning-item">
 
                     <div>
+
+                        <h3>
+                            Power BI Fundamentals
+                        </h3>
+
+                        <p>
+                            DataCamp · May 2026
+                        </p>
+
+                    </div>
+
+                    <span class="learning-type">
+                        Training
+                    </span>
+
+                </div>
+
+
+                <!-- LEARNING 3 -->
+
+                <div class="learning-item">
+
+                    <div>
+
+                        <h3>
+                            Predictive Modeling Fundamentals
+                        </h3>
+
+                        <p>
+                            IBM Skills Network · February 2025
+                        </p>
+
+                    </div>
+
+                    <span class="learning-type">
+                        Training
+                    </span>
+
+                </div>
+
+
+                <!-- LEARNING 4 -->
+
+                <div class="learning-item">
+
+                    <div>
+
                         <h3>
                             Tebyan Career Guidance Program
                         </h3>
@@ -1630,6 +2393,7 @@ footer {
                         <p>
                             Nuzmy · Career Development
                         </p>
+
                     </div>
 
                     <span class="learning-type">
@@ -1639,24 +2403,28 @@ footer {
                 </div>
 
 
+                <!-- LEARNING 5 -->
+
                 <div class="learning-item">
 
                     <div>
+
                         <h3>
-                            Additional Workshops & Training
+                            Women's Self-Worth Initiative Program
                         </h3>
 
                         <p>
-                            Professional and academic development
-                            experiences.
+                            Accenture · Selected Participant, 2025
                         </p>
+
                     </div>
 
                     <span class="learning-type">
-                        Learning
+                        Program
                     </span>
 
                 </div>
+
 
             </div>
 
@@ -1667,19 +2435,25 @@ footer {
 </section>
 
 
-<!-- ================= VOLUNTEERING ================= -->
+<!-- ================= VOLUNTEERING & STUDENT INVOLVEMENT ================= -->
 
-<section id="involvement" class="involvement">
+<section
+    id="involvement"
+    class="involvement"
+>
 
     <div class="section-container">
+
 
         <div class="section-label">
             Volunteering & Student Involvement
         </div>
 
+
         <h2 class="section-title">
             Involvement
         </h2>
+
 
         <p class="section-intro">
             Leadership, volunteering, coordination, and student
@@ -1691,13 +2465,14 @@ footer {
         <div class="involvement-list">
 
 
-            <!-- 1 -->
+            <!-- INVOLVEMENT 1 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Aug 2025 – Jan 2026
                 </div>
+
 
                 <div>
 
@@ -1722,13 +2497,14 @@ footer {
             </div>
 
 
-            <!-- 2 -->
+            <!-- INVOLVEMENT 2 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Sep 2025 – Jan 2026
                 </div>
+
 
                 <div>
 
@@ -1751,13 +2527,14 @@ footer {
             </div>
 
 
-            <!-- 3 -->
+            <!-- INVOLVEMENT 3 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Aug 2025 – Jan 2026
                 </div>
+
 
                 <div>
 
@@ -1780,13 +2557,14 @@ footer {
             </div>
 
 
-            <!-- 4 -->
+            <!-- INVOLVEMENT 4 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Jan 2026 – Present
                 </div>
+
 
                 <div>
 
@@ -1809,13 +2587,14 @@ footer {
             </div>
 
 
-            <!-- 5 -->
+            <!-- INVOLVEMENT 5 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Mar 2026 – Present
                 </div>
+
 
                 <div>
 
@@ -1838,13 +2617,14 @@ footer {
             </div>
 
 
-            <!-- 6 -->
+            <!-- INVOLVEMENT 6 -->
 
             <div class="involvement-item">
 
                 <div class="involvement-date">
                     Jun 2025 – Present
                 </div>
+
 
                 <div>
 
@@ -1877,17 +2657,23 @@ footer {
 
 <!-- ================= SKILLS ================= -->
 
-<section id="skills">
+<section
+    id="skills"
+    class="skills"
+>
 
     <div class="section-container">
+
 
         <div class="section-label">
             Capabilities
         </div>
 
+
         <h2 class="section-title">
             Skills
         </h2>
+
 
         <p class="section-intro">
             A combination of professional, business,
@@ -1898,6 +2684,8 @@ footer {
         <div class="skills-grid">
 
 
+            <!-- PROFESSIONAL -->
+
             <div class="skill-box">
 
                 <h3>
@@ -1905,15 +2693,33 @@ footer {
                 </h3>
 
                 <ul>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Project Management</li>
-                    <li>Teamwork & Collaboration</li>
-                    <li>Coordination</li>
+
+                    <li>
+                        Problem Solving
+                    </li>
+
+                    <li>
+                        Communication
+                    </li>
+
+                    <li>
+                        Project Management
+                    </li>
+
+                    <li>
+                        Teamwork & Collaboration
+                    </li>
+
+                    <li>
+                        Coordination
+                    </li>
+
                 </ul>
 
             </div>
 
+
+            <!-- BUSINESS -->
 
             <div class="skill-box">
 
@@ -1922,15 +2728,33 @@ footer {
                 </h3>
 
                 <ul>
-                    <li>Business Analysis</li>
-                    <li>Business Processes</li>
-                    <li>Digital Business</li>
-                    <li>Business Development</li>
-                    <li>Digital Marketing</li>
+
+                    <li>
+                        Business Analysis
+                    </li>
+
+                    <li>
+                        Business Processes
+                    </li>
+
+                    <li>
+                        Digital Business
+                    </li>
+
+                    <li>
+                        Business Development
+                    </li>
+
+                    <li>
+                        Digital Marketing
+                    </li>
+
                 </ul>
 
             </div>
 
+
+            <!-- DATA & TECHNOLOGY -->
 
             <div class="skill-box">
 
@@ -1939,15 +2763,33 @@ footer {
                 </h3>
 
                 <ul>
-                    <li>Data Analysis</li>
-                    <li>Power BI</li>
-                    <li>SQL</li>
-                    <li>Python</li>
-                    <li>Database Design</li>
+
+                    <li>
+                        Data Analysis
+                    </li>
+
+                    <li>
+                        Power BI
+                    </li>
+
+                    <li>
+                        SQL
+                    </li>
+
+                    <li>
+                        Python
+                    </li>
+
+                    <li>
+                        Database Design
+                    </li>
+
                 </ul>
 
             </div>
 
+
+            <!-- DIGITAL -->
 
             <div class="skill-box">
 
@@ -1956,11 +2798,27 @@ footer {
                 </h3>
 
                 <ul>
-                    <li>Web Development</li>
-                    <li>HTML & CSS</li>
-                    <li>ASP.NET</li>
-                    <li>Visual Content</li>
-                    <li>Social Media</li>
+
+                    <li>
+                        Web Development
+                    </li>
+
+                    <li>
+                        HTML & CSS
+                    </li>
+
+                    <li>
+                        ASP.NET
+                    </li>
+
+                    <li>
+                        Visual Content
+                    </li>
+
+                    <li>
+                        Social Media
+                    </li>
+
                 </ul>
 
             </div>
@@ -1978,7 +2836,9 @@ footer {
 
     <div class="section-container">
 
+
         <div class="contact-box">
+
 
             <div>
 
@@ -1986,9 +2846,11 @@ footer {
                     Contact
                 </div>
 
+
                 <h2>
                     Let's connect.
                 </h2>
+
 
                 <p>
                     I'm always open to connecting with people,
@@ -2000,6 +2862,7 @@ footer {
 
 
             <div class="contact-links">
+
 
                 <a
                     href="mailto:Najlaal447@gmail.com"
@@ -2021,6 +2884,7 @@ footer {
                 <div class="contact-link">
                     📍 Riyadh, Saudi Arabia
                 </div>
+
 
             </div>
 
