@@ -7,611 +7,597 @@
 <title>Najla Alsaif | MIS Portfolio</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-:root{
-  --navy:#14213D;
-  --sage:#7B8C82;
-  --gold:#B39A6B;
-  --cream:#F7F6F2;
-  --white:#FFFFFF;
-  --text:#172033;
-  --muted:#697386;
-  --line:#E3E5E1;
+:root {
+  --blue: #2563EB;
+  --blue-light: #EFF6FF;
+  --navy: #172033;
+  --text: #344054;
+  --muted: #667085;
+  --light: #F8FAFC;
+  --white: #FFFFFF;
+  --border: #E4E7EC;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  font-family:"DM Sans",Arial,sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  line-height:1.65;
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.container{
-  width:min(1160px,calc(100% - 48px));
-  margin:auto;
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
 }
 
-/* NAV */
+/* ================= NAVBAR ================= */
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(247,246,242,.95);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-.nav-inner{
-  height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.navbar {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo{
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:.16em;
+.logo {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--navy);
 }
 
-.logo span{
-  color:var(--gold);
+.logo span {
+  color: var(--blue);
 }
 
-.nav-links{
-  display:flex;
-  gap:34px;
-  font-size:13px;
-  font-weight:600;
-  color:#526078;
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
 }
 
-.nav-links a:hover{
-  color:var(--navy);
+.nav-links a:hover {
+  color: var(--blue);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
-.hero{
-  min-height:calc(100vh - 78px);
-  display:flex;
-  align-items:center;
-  padding:90px 0 110px;
+.hero {
+  background: var(--light);
+  min-height: calc(100vh - 74px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-content{
-  width:100%;
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid #DCE8FF;
+  border-radius: 50%;
+  right: -120px;
+  top: -120px;
 }
 
-.eyebrow{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:var(--sage);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-  margin-bottom:28px;
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid #E7EEF9;
+  border-radius: 50%;
+  right: 40px;
+  top: 40px;
 }
 
-.eyebrow-line{
-  width:42px;
-  height:1px;
-  background:var(--gold);
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-.hero h1{
-  font-family:"Playfair Display",Georgia,serif;
-  font-size:clamp(55px,9vw,118px);
-  line-height:1;
-  letter-spacing:-.055em;
-  font-weight:600;
-  color:var(--navy);
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
-.hero h1 em{
-  color:var(--sage);
-  font-style:normal;
+.hero-label::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--blue);
 }
 
-.hero-rule{
-  width:100%;
-  height:1px;
-  background:var(--line);
-  margin:38px 0 30px;
+.hero h1 {
+  font-size: clamp(55px, 9vw, 108px);
+  line-height: .95;
+  letter-spacing: -.075em;
+  color: var(--navy);
+  font-weight: 800;
 }
 
-.hero-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:50px;
+.hero h1 span {
+  color: var(--blue);
 }
 
-.hero-description{
-  max-width:620px;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.75;
+.hero-subtitle {
+  margin-top: 25px;
+  font-size: clamp(18px, 2.5vw, 25px);
+  color: var(--navy);
+  font-weight: 600;
 }
 
-.hero-meta{
-  display:flex;
-  gap:38px;
+.hero-description {
+  max-width: 620px;
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
 }
 
-.meta-item span{
-  display:block;
-  color:#8A93A3;
-  font-size:10px;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  font-weight:700;
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
 }
 
-.meta-item strong{
-  color:var(--navy);
-  font-size:13px;
-  font-weight:600;
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
 }
 
-.actions{
-  display:flex;
-  gap:12px;
-  margin-top:34px;
+.button-primary {
+  background: var(--blue);
+  color: white;
 }
 
-.btn{
-  display:inline-flex;
-  padding:13px 20px;
-  border:1px solid var(--navy);
-  font-size:13px;
-  font-weight:700;
-  transition:.2s;
+.button-secondary {
+  background: white;
+  color: var(--navy);
+  border: 1px solid var(--border);
 }
 
-.btn.primary{
-  background:var(--navy);
-  color:white;
+.button:hover {
+  transform: translateY(-2px);
 }
 
-.btn.secondary{
-  color:var(--navy);
-}
+/* ================= GENERAL SECTIONS ================= */
 
-.btn:hover{
-  transform:translateY(-2px);
+section {
+  padding: 100px 0;
 }
-
-/* SECTIONS */
 
-section{
-  padding:110px 0;
+.section-label {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
-.section-header{
-  display:grid;
-  grid-template-columns:1fr .8fr;
-  gap:70px;
-  align-items:end;
-  margin-bottom:55px;
+.section-title {
+  color: var(--navy);
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -.055em;
 }
 
-.section-label{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  color:var(--sage);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-  margin-bottom:18px;
+.section-description {
+  max-width: 470px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
-.section-label:before{
-  content:"";
-  width:30px;
-  height:1px;
-  background:var(--gold);
-}
+/* ================= ABOUT ================= */
 
-.section-title{
-  font-family:"Playfair Display",Georgia,serif;
-  font-size:clamp(38px,5vw,62px);
-  line-height:1.05;
-  color:var(--navy);
-  font-weight:600;
+.about {
+  background: white;
 }
 
-.section-intro{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.8;
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 50px;
+  margin-bottom: 55px;
 }
-
-/* ABOUT */
 
-.about-section{
-  background:var(--white);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+.about-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 80px;
 }
 
-.about-grid{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:90px;
+.about-highlight {
+  background: var(--blue-light);
+  border: 1px solid #DCE8FF;
+  border-radius: 16px;
+  padding: 35px;
+  color: var(--navy);
+  font-size: 27px;
+  line-height: 1.35;
+  font-weight: 700;
 }
 
-.about-statement{
-  font-family:"Playfair Display",Georgia,serif;
-  color:var(--navy);
-  font-size:34px;
-  line-height:1.28;
+.about-highlight span {
+  color: var(--blue);
 }
 
-.about-statement em{
-  color:var(--sage);
-  font-style:normal;
+.about-text {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
 }
 
-.about-copy{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.9;
+.about-text p + p {
+  margin-top: 18px;
 }
 
-.about-copy p+p{
-  margin-top:18px;
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 35px;
 }
 
-.info-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  margin-top:38px;
+.info {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
-.info{
-  padding:20px 20px 0 0;
-  border-right:1px solid var(--line);
+.info small {
+  display: block;
+  color: #98A2B3;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 6px;
 }
 
-.info:nth-child(2){
-  padding-left:20px;
+.info strong {
+  color: var(--navy);
+  font-size: 13px;
 }
 
-.info:last-child{
-  border-right:0;
-  padding-left:20px;
-}
+/* ================= PROJECTS ================= */
 
-.info span{
-  display:block;
-  color:#8A93A3;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.13em;
-  font-weight:700;
-  margin-bottom:7px;
+.projects {
+  background: var(--light);
 }
 
-.info strong{
-  color:var(--navy);
-  font-size:13px;
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 50px;
+  margin-bottom: 50px;
 }
-
-/* PROJECTS */
 
-.projects-section{
-  background:var(--cream);
+.project-list {
+  border-top: 1px solid var(--border);
 }
 
-.project-list{
-  border-top:1px solid var(--navy);
+.project {
+  display: grid;
+  grid-template-columns: 70px 1fr 230px;
+  gap: 30px;
+  align-items: start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  transition: .2s;
 }
 
-.project{
-  display:grid;
-  grid-template-columns:90px 1fr 280px;
-  gap:35px;
-  padding:34px 0;
-  border-bottom:1px solid var(--line);
-  transition:.2s;
+.project:hover {
+  background: white;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
-.project:hover{
-  padding-left:12px;
-  padding-right:12px;
-  background:rgba(255,255,255,.55);
+.project-number {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.project-number{
-  color:var(--gold);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.12em;
+.project h3 {
+  color: var(--navy);
+  font-size: 21px;
+  letter-spacing: -.025em;
+  margin-bottom: 8px;
 }
 
-.project h3{
-  font-family:"Playfair Display",Georgia,serif;
-  color:var(--navy);
-  font-size:28px;
-  margin-bottom:8px;
+.project p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
 }
 
-.project p{
-  color:var(--muted);
-  font-size:14px;
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: flex-end;
 }
 
-.project-tools{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  gap:7px;
+.tag {
+  background: white;
+  border: 1px solid var(--border);
+  color: #475467;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
 }
 
-.tag{
-  border:1px solid var(--line);
-  background:white;
-  color:#586274;
-  padding:7px 10px;
-  font-size:10px;
-  font-weight:700;
-}
+/* ================= SKILLS ================= */
 
-/* SKILLS */
+.skills {
+  background: white;
+}
 
-.skills-section{
-  background:white;
-  border-top:1px solid var(--line);
+.skills-header {
+  margin-bottom: 45px;
 }
 
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--navy);
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.skill-box{
-  padding:28px 25px 35px;
-  border-right:1px solid var(--line);
+.skill-box {
+  padding: 28px;
+  border-right: 1px solid var(--border);
 }
 
-.skill-box:last-child{
-  border-right:0;
+.skill-box:last-child {
+  border-right: none;
 }
 
-.skill-number{
-  color:var(--gold);
-  font-size:11px;
-  font-weight:700;
+.skill-number {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
 }
 
-.skill-box h3{
-  color:var(--navy);
-  font-size:16px;
-  margin:25px 0 18px;
+.skill-box h3 {
+  color: var(--navy);
+  font-size: 16px;
+  margin: 20px 0 15px;
 }
 
-.skill-list{
-  list-style:none;
+.skill-list {
+  list-style: none;
 }
 
-.skill-list li{
-  color:var(--muted);
-  font-size:13px;
-  padding:7px 0;
-  border-bottom:1px solid #EEF0ED;
+.skill-list li {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #F0F2F5;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 
-.contact-section{
-  background:var(--navy);
-  color:white;
+.contact {
+  background: var(--light);
 }
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr .7fr;
-  gap:100px;
-  align-items:end;
+.contact-box {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 55px;
+  display: grid;
+  grid-template-columns: 1fr .7fr;
+  gap: 80px;
+  align-items: end;
 }
 
-.contact-section .section-label{
-  color:#AEBBB3;
+.contact-box .section-label {
+  color: #8DB5FF;
 }
 
-.contact-title{
-  font-family:"Playfair Display",Georgia,serif;
-  font-size:clamp(45px,6vw,78px);
-  line-height:1;
-  font-weight:600;
-  margin-top:15px;
+.contact-title {
+  color: white;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1;
+  letter-spacing: -.06em;
 }
 
-.contact-copy{
-  color:#C4CBD5;
-  max-width:580px;
-  margin-top:22px;
-  font-size:15px;
+.contact-description {
+  color: #B8C2D1;
+  max-width: 540px;
+  margin-top: 18px;
+  font-size: 14px;
 }
 
-.contact-links{
-  display:flex;
-  flex-direction:column;
+.contact-links {
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-link{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 0;
-  border-bottom:1px solid #33415D;
-  color:white;
-  font-size:14px;
-  font-weight:600;
+.contact-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid #34415A;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.contact-link span{
-  color:#AEB7C5;
+.contact-link span {
+  color: #8DB5FF;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
-footer{
-  background:var(--navy);
-  border-top:1px solid #33415D;
-  padding:25px 0;
-  color:#AEB7C5;
-  font-size:11px;
-  display:flex;
-  justify-content:space-between;
+footer {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #98A2B3;
+  font-size: 11px;
+  border-top: 1px solid var(--border);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
-@media(max-width:850px){
+@media(max-width:850px) {
 
-  .nav-links{
-    gap:15px;
+  .nav-links {
+    gap: 15px;
   }
 
-  .hero{
-    min-height:auto;
-    padding:75px 0 85px;
+  .hero {
+    min-height: auto;
+    padding: 80px 0 90px;
   }
 
-  .hero h1{
-    font-size:clamp(48px,13vw,82px);
+  .hero h1 {
+    font-size: clamp(52px, 14vw, 82px);
   }
 
-  .hero-bottom{
-    display:block;
+  .about-header,
+  .projects-header {
+    display: block;
   }
 
-  .hero-meta{
-    margin-top:32px;
+  .section-description {
+    margin-top: 18px;
   }
 
-  .section-header{
-    grid-template-columns:1fr;
-    gap:18px;
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:40px;
+  .project {
+    grid-template-columns: 50px 1fr;
+    gap: 15px;
   }
 
-  .project{
-    grid-template-columns:55px 1fr;
-    gap:15px;
+  .project-tags {
+    grid-column: 2;
+    justify-content: flex-start;
   }
 
-  .project-tools{
-    grid-column:2;
-    justify-content:flex-start;
+  .skills-grid {
+    grid-template-columns: repeat(2,1fr);
   }
 
-  .skills-grid{
-    grid-template-columns:repeat(2,1fr);
+  .skill-box:nth-child(2) {
+    border-right: none;
   }
 
-  .skill-box:nth-child(2){
-    border-right:0;
+  .skill-box:nth-child(3),
+  .skill-box:nth-child(4) {
+    border-top: 1px solid var(--border);
   }
 
-  .contact-grid{
-    grid-template-columns:1fr;
-    gap:45px;
+  .contact-box {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 40px 30px;
   }
 }
 
-@media(max-width:560px){
+@media(max-width:560px) {
 
-  .container{
-    width:calc(100% - 32px);
+  .container {
+    width: calc(100% - 32px);
   }
 
-  .nav-inner{
-    height:68px;
+  .nav-links {
+    display: none;
   }
 
-  .nav-links{
-    display:none;
+  section {
+    padding: 75px 0;
   }
 
-  .hero-description{
-    font-size:16px;
+  .hero-actions {
+    flex-direction: column;
   }
 
-  .hero-meta{
-    gap:25px;
-    flex-wrap:wrap;
+  .button {
+    width: 100%;
   }
 
-  .actions{
-    flex-direction:column;
+  .info-grid {
+    grid-template-columns: 1fr;
   }
 
-  .btn{
-    width:100%;
-    justify-content:center;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
-  section{
-    padding:80px 0;
+  .skill-box {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 
-  .info-row{
-    grid-template-columns:1fr;
+  .skill-box:last-child {
+    border-bottom: none;
   }
 
-  .info,
-  .info:nth-child(2),
-  .info:last-child{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-    padding:16px 0;
+  footer {
+    display: block;
   }
 
-  .skills-grid{
-    grid-template-columns:1fr;
-  }
-
-  .skill-box{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-  }
-
-  footer{
-    display:block;
-  }
-
-  footer span{
-    display:block;
-    margin-top:5px;
+  footer span {
+    display: block;
+    margin-top: 5px;
   }
 }
 </style>
@@ -619,16 +605,18 @@ footer{
 
 <body>
 
-<nav>
-  <div class="container nav-inner">
+<!-- NAVIGATION -->
 
-    <a class="logo" href="#">
+<nav>
+  <div class="container navbar">
+
+    <a href="#" class="logo">
       NAJLA ALSAIF<span>.</span>
     </a>
 
     <div class="nav-links">
       <a href="#about">About</a>
-      <a href="#work">Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
@@ -637,56 +625,40 @@ footer{
 </nav>
 
 
+<!-- HERO -->
+
 <header class="hero">
 
   <div class="container hero-content">
 
-    <div class="eyebrow">
-      <span class="eyebrow-line"></span>
+    <div class="hero-label">
       Management Information Systems
     </div>
 
     <h1>
-      Najla <em>Alsaif.</em>
+      Najla <span>Alsaif.</span>
     </h1>
 
-    <div class="hero-rule"></div>
+    <div class="hero-subtitle">
+      MIS Student • Data & Technology Enthusiast
+    </div>
 
-    <div class="hero-bottom">
+    <p class="hero-description">
+      Final-year Management Information Systems student interested in
+      data analysis, information systems, project management, and
+      digital business. I enjoy turning business needs into clear,
+      practical technology solutions.
+    </p>
 
-      <div>
+    <div class="hero-actions">
 
-        <p class="hero-description">
-          Final-year Management Information Systems student exploring the
-          intersection of business, technology, and data — with a focus on
-          building practical and meaningful solutions.
-        </p>
+      <a href="#projects" class="button button-primary">
+        View My Work ↗
+      </a>
 
-        <div class="actions">
-          <a class="btn primary" href="#work">
-            View Selected Work ↗
-          </a>
-
-          <a class="btn secondary" href="#contact">
-            Get in Touch
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero-meta">
-
-        <div class="meta-item">
-          <span>Based in</span>
-          <strong>Riyadh, Saudi Arabia</strong>
-        </div>
-
-        <div class="meta-item">
-          <span>Status</span>
-          <strong>Final-Year Student</strong>
-        </div>
-
-      </div>
+      <a href="#contact" class="button button-secondary">
+        Let's Connect
+      </a>
 
     </div>
 
@@ -695,21 +667,25 @@ footer{
 </header>
 
 
-<section id="about" class="about-section">
+<!-- ABOUT -->
+
+<section id="about" class="about">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="about-header">
 
       <div>
-        <div class="section-label">01 — About</div>
-        <h2 class="section-title">A little about me.</h2>
+        <div class="section-label">01 — About Me</div>
+        <h2 class="section-title">
+          Building at the intersection<br>
+          of business & technology.
+        </h2>
       </div>
 
-      <p class="section-intro">
-        My portfolio brings together the academic projects,
-        technical skills, and business interests I have developed
-        throughout my MIS journey.
+      <p class="section-description">
+        A portfolio of academic work, technical skills, and experiences
+        developed throughout my Management Information Systems journey.
       </p>
 
     </div>
@@ -717,13 +693,13 @@ footer{
 
     <div class="about-grid">
 
-      <div class="about-statement">
-        I connect <em>business needs</em> with technology,
-        data, and thoughtful system design.
+      <div class="about-highlight">
+        I turn <span>ideas, data, and business needs</span>
+        into structured digital solutions.
       </div>
 
 
-      <div class="about-copy">
+      <div class="about-text">
 
         <p>
           I am a Management Information Systems student at King Saud University,
@@ -733,27 +709,27 @@ footer{
         </p>
 
         <p>
-          Through university projects, I have worked with requirements analysis,
-          process modeling, dashboards, databases, web development,
-          and business-focused digital projects.
+          Through university projects, I have gained experience with
+          requirements analysis, process modeling, dashboards, databases,
+          web development, and business-focused digital projects.
         </p>
 
 
-        <div class="info-row">
+        <div class="info-grid">
 
           <div class="info">
-            <span>University</span>
+            <small>University</small>
             <strong>King Saud University</strong>
           </div>
 
           <div class="info">
-            <span>Major</span>
+            <small>Major</small>
             <strong>Management Information Systems</strong>
           </div>
 
           <div class="info">
-            <span>Degree</span>
-            <strong>B.Sc. in Business Administration</strong>
+            <small>Status</small>
+            <strong>Final-Year Student</strong>
           </div>
 
         </div>
@@ -767,21 +743,24 @@ footer{
 </section>
 
 
-<section id="work" class="projects-section">
+<!-- PROJECTS -->
+
+<section id="projects" class="projects">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="projects-header">
 
       <div>
         <div class="section-label">02 — Selected Work</div>
-        <h2 class="section-title">Projects & experience.</h2>
+        <h2 class="section-title">
+          Projects I've worked on.
+        </h2>
       </div>
 
-      <p class="section-intro">
-        Selected university projects covering systems analysis,
-        process modeling, data visualization, web development,
-        and digital business.
+      <p class="section-description">
+        Selected academic projects covering systems analysis,
+        data visualization, web development, and digital business.
       </p>
 
     </div>
@@ -795,16 +774,18 @@ footer{
         <div class="project-number">01</div>
 
         <div>
+
           <h3>Order Management System</h3>
 
           <p>
             Designed a proposed order management solution for a local
-            abaya brand, focusing on customer needs, order flow,
+            abaya brand, focusing on order flow, customer needs,
             payment, shipping, and system processes.
           </p>
+
         </div>
 
-        <div class="project-tools">
+        <div class="project-tags">
           <span class="tag">Systems Analysis</span>
           <span class="tag">DFD</span>
           <span class="tag">Requirements</span>
@@ -818,15 +799,17 @@ footer{
         <div class="project-number">02</div>
 
         <div>
+
           <h3>Process Analysis & BPMN</h3>
 
           <p>
-            Modeled business processes using BPMN to clearly represent
-            activities, decisions, events, and process flow.
+            Modeled business processes using BPMN to represent
+            activities, decisions, events, and process flow clearly.
           </p>
+
         </div>
 
-        <div class="project-tools">
+        <div class="project-tags">
           <span class="tag">BPMN</span>
           <span class="tag">Process Analysis</span>
         </div>
@@ -839,6 +822,7 @@ footer{
         <div class="project-number">03</div>
 
         <div>
+
           <h3>Allure Salon Web System</h3>
 
           <p>
@@ -846,9 +830,10 @@ footer{
             login, booking, services, user dashboard,
             and profile management.
           </p>
+
         </div>
 
-        <div class="project-tools">
+        <div class="project-tags">
           <span class="tag">ASP.NET</span>
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
@@ -863,15 +848,17 @@ footer{
         <div class="project-number">04</div>
 
         <div>
+
           <h3>Power BI Dashboard</h3>
 
           <p>
             Created interactive dashboards and KPI visualizations
             to transform datasets into clear business insights.
           </p>
+
         </div>
 
-        <div class="project-tools">
+        <div class="project-tags">
           <span class="tag">Power BI</span>
           <span class="tag">KPI</span>
           <span class="tag">Data Analysis</span>
@@ -885,15 +872,17 @@ footer{
         <div class="project-number">05</div>
 
         <div>
+
           <h3>Digital Marketing Project</h3>
 
           <p>
             Analyzed digital environments, customer-focused marketing
             elements, social media, and digital business opportunities.
           </p>
+
         </div>
 
-        <div class="project-tools">
+        <div class="project-tags">
           <span class="tag">Digital Marketing</span>
           <span class="tag">4C</span>
           <span class="tag">Social Media</span>
@@ -909,21 +898,19 @@ footer{
 </section>
 
 
-<section id="skills" class="skills-section">
+<!-- SKILLS -->
+
+<section id="skills" class="skills">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="skills-header">
 
-      <div>
-        <div class="section-label">03 — Capabilities</div>
-        <h2 class="section-title">My toolkit.</h2>
-      </div>
+      <div class="section-label">03 — Skills</div>
 
-      <p class="section-intro">
-        A combination of technical, analytical, and business skills
-        developed through coursework and hands-on projects.
-      </p>
+      <h2 class="section-title">
+        What I work with.
+      </h2>
 
     </div>
 
@@ -1006,11 +993,13 @@ footer{
 </section>
 
 
-<section id="contact" class="contact-section">
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
 
   <div class="container">
 
-    <div class="contact-grid">
+    <div class="contact-box">
 
       <div>
 
@@ -1022,10 +1011,10 @@ footer{
           Let's connect.
         </h2>
 
-        <p class="contact-copy">
-          I am currently open to professional opportunities,
-          internships, and experiences where I can grow,
-          contribute, and apply my MIS skills.
+        <p class="contact-description">
+          I am currently open to professional opportunities, internships,
+          and experiences where I can learn, contribute, and apply my
+          Management Information Systems skills.
         </p>
 
       </div>
@@ -1033,25 +1022,33 @@ footer{
 
       <div class="contact-links">
 
-        <a class="contact-link"
-           href="mailto:YOUR_EMAIL@example.com">
+        <!-- Replace the email below with your real email -->
+
+        <a
+          class="contact-link"
+          href="mailto:YOUR_EMAIL@example.com"
+        >
           Email
           <span>↗</span>
         </a>
 
-        <a class="contact-link"
-           href="https://www.linkedin.com/"
-           target="_blank">
+
+        <!-- Replace the LinkedIn URL below with your profile -->
+
+        <a
+          class="contact-link"
+          href="https://www.linkedin.com/"
+          target="_blank"
+        >
           LinkedIn
           <span>↗</span>
         </a>
 
-        <a class="contact-link"
-           href="https://github.com/najlalsaif"
-           target="_blank">
-          GitHub
-          <span>↗</span>
-        </a>
+
+        <div class="contact-link">
+          Riyadh, Saudi Arabia
+          <span>⌖</span>
+        </div>
 
       </div>
 
@@ -1062,15 +1059,17 @@ footer{
 </section>
 
 
+<!-- FOOTER -->
+
 <div class="container">
 
-<footer>
+  <footer>
 
-<span>© 2026 Najla Alsaif</span>
+    <span>© 2026 Najla Alsaif</span>
 
-<span>Management Information Systems</span>
+    <span>Management Information Systems</span>
 
-</footer>
+  </footer>
 
 </div>
 
