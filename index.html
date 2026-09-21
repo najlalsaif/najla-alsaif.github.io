@@ -47,7 +47,7 @@ body {
 }
 
 
-/* Professional layered background */
+/* ================= BACKGROUND ================= */
 
 body::before {
     content: "";
@@ -57,13 +57,13 @@ body::before {
 
     background:
         radial-gradient(
-            circle at 10% 15%,
+            circle at 8% 15%,
             rgba(121,174,184,0.11),
             transparent 27%
         ),
 
         radial-gradient(
-            circle at 90% 30%,
+            circle at 92% 28%,
             rgba(121,174,184,0.08),
             transparent 30%
         ),
@@ -82,8 +82,6 @@ body::before {
         );
 }
 
-
-/* Subtle grid */
 
 body::after {
     content: "";
@@ -120,7 +118,6 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-
     z-index: 1000;
 
     padding: 19px 7%;
@@ -149,14 +146,14 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 27px;
+    gap: 25px;
     list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text);
-    font-size: 13px;
+    font-size: 12px;
     transition: 0.3s;
 }
 
@@ -261,7 +258,7 @@ nav {
 }
 
 
-/* Hero text */
+/* Hero */
 
 .hero h1 {
     font-size: clamp(46px, 7vw, 78px);
@@ -535,9 +532,6 @@ section {
     color: var(--cyan-dark);
 }
 
-
-/* Project links */
-
 .project-links {
     margin-top: auto;
 
@@ -565,27 +559,56 @@ section {
 
 /* ================= CERTIFICATIONS ================= */
 
+.certifications {
+    background: rgba(248,251,251,0.55);
+}
+
 .cert-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+
+    gap: 18px;
 }
 
 .cert-card {
-    padding: 20px;
+    position: relative;
+
+    padding: 27px;
+
+    min-height: 190px;
 
     border: 1px solid var(--border);
 
-    border-radius: 14px;
+    border-radius: 18px;
 
-    background: rgba(255,255,255,0.76);
+    background: rgba(255,255,255,0.82);
+
+    transition: 0.3s;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(121,174,184,0.4);
+    box-shadow: var(--shadow);
+}
+
+.cert-number {
+    font-size: 10px;
+    color: var(--cyan-dark);
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    margin-bottom: 28px;
 }
 
 .cert-card h3 {
     color: var(--navy);
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
-    margin-bottom: 4px;
+    line-height: 1.35;
+
+    margin-bottom: 7px;
 }
 
 .cert-card p {
@@ -596,7 +619,7 @@ section {
 .cert-card span {
     display: inline-block;
 
-    margin-top: 9px;
+    margin-top: 12px;
 
     font-size: 10px;
 
@@ -604,65 +627,141 @@ section {
 
     background: var(--cyan-light);
 
-    padding: 4px 7px;
+    padding: 4px 8px;
 
     border-radius: 20px;
 }
 
 
-/* ================= EXPERIENCE ================= */
+/* ================= CONTINUOUS LEARNING ================= */
 
-.experience-list {
+.learning-box {
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.9),
+            rgba(234,245,246,0.5)
+        );
+
+    box-shadow: 0 7px 24px rgba(29,48,66,0.035);
+}
+
+.learning-list {
     display: grid;
+    gap: 0;
+}
+
+.learning-item {
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 25px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.learning-item:last-child {
+    border-bottom: none;
+}
+
+.learning-item h3 {
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 3px;
+}
+
+.learning-item p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.learning-type {
+    align-self: center;
+
+    color: var(--cyan-dark);
+
+    background: var(--cyan-light);
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+}
+
+
+/* ================= VOLUNTEERING ================= */
+
+.involvement {
+    background: rgba(234,245,246,0.22);
+}
+
+.involvement-list {
+    display: grid;
+
     gap: 0;
 
     border-top: 1px solid var(--border);
 }
 
-.experience-item {
+.involvement-item {
     display: grid;
 
     grid-template-columns: 205px 1fr;
 
     gap: 35px;
 
-    padding: 24px 0;
+    padding: 25px 0;
 
     border-bottom: 1px solid var(--border);
 }
 
-.experience-date {
+.involvement-date {
     color: var(--cyan-dark);
+
     font-size: 11px;
     font-weight: 600;
 }
 
-.experience-item h3 {
+.involvement-item h3 {
     color: var(--navy);
+
     font-size: 17px;
     font-weight: 600;
+
     margin-bottom: 3px;
 }
 
-.experience-item h4 {
+.involvement-item h4 {
     color: var(--cyan-dark);
+
     font-size: 12px;
     font-weight: 500;
+
     margin-bottom: 7px;
 }
 
-.experience-item p {
+.involvement-item p {
     color: var(--muted);
+
     font-size: 13px;
-    max-width: 750px;
+
+    max-width: 760px;
 }
 
 
 /* ================= SKILLS ================= */
-
-.skills {
-    background: rgba(234,245,246,0.22);
-}
 
 .skills-grid {
     display: grid;
@@ -684,6 +783,7 @@ section {
 
 .skill-box h3 {
     color: var(--navy);
+
     font-size: 15px;
     font-weight: 600;
 
@@ -696,6 +796,7 @@ section {
 
 .skill-box li {
     color: var(--muted);
+
     font-size: 12px;
 
     padding: 6px 0;
@@ -735,9 +836,12 @@ section {
 
 .contact-box h2 {
     color: var(--navy);
+
     font-size: 31px;
     font-weight: 600;
+
     line-height: 1.2;
+
     margin-bottom: 11px;
 }
 
@@ -792,7 +896,7 @@ footer {
 @media (max-width: 900px) {
 
     .nav-links {
-        gap: 15px;
+        gap: 13px;
     }
 
     .projects-grid {
@@ -808,7 +912,7 @@ footer {
         gap: 35px;
     }
 
-    .experience-item {
+    .involvement-item {
         grid-template-columns: 1fr;
         gap: 7px;
     }
@@ -851,17 +955,32 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
     .cert-grid {
         grid-template-columns: 1fr;
     }
 
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-box {
+        padding: 25px;
+    }
+
+    .learning-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .learning-type {
+        justify-self: start;
+    }
+
     .contact-box {
         grid-template-columns: 1fr;
+
         padding: 32px 23px;
+
         gap: 28px;
     }
 
@@ -902,7 +1021,11 @@ footer {
             </li>
 
             <li>
-                <a href="#experience">Experience</a>
+                <a href="#learning">Learning</a>
+            </li>
+
+            <li>
+                <a href="#involvement">Involvement</a>
             </li>
 
             <li>
@@ -1333,28 +1456,34 @@ footer {
 
 <!-- ================= CERTIFICATIONS ================= -->
 
-<section id="certifications">
+<section id="certifications" class="certifications">
 
     <div class="section-container">
 
         <div class="section-label">
-            Certifications & Development
+            Certifications
         </div>
 
         <h2 class="section-title">
-            Continuous Learning
+            Certifications & Credentials
         </h2>
 
         <p class="section-intro">
-            Professional development and technical learning
-            that complement my academic background.
+            Professional certifications and structured learning
+            that support my academic and technical development.
         </p>
 
 
         <div class="cert-grid">
 
 
+            <!-- CERTIFICATE 1 -->
+
             <div class="cert-card">
+
+                <div class="cert-number">
+                    01 / CERTIFICATION
+                </div>
 
                 <h3>
                     Data Analysis Bootcamp
@@ -1371,7 +1500,13 @@ footer {
             </div>
 
 
+            <!-- CERTIFICATE 2 -->
+
             <div class="cert-card">
+
+                <div class="cert-number">
+                    02 / CERTIFICATION
+                </div>
 
                 <h3>
                     Introduction to SQL
@@ -1388,7 +1523,13 @@ footer {
             </div>
 
 
+            <!-- CERTIFICATE 3 -->
+
             <div class="cert-card">
+
+                <div class="cert-number">
+                    03 / CERTIFICATION
+                </div>
 
                 <h3>
                     General-Purpose Programming Track
@@ -1405,7 +1546,13 @@ footer {
             </div>
 
 
+            <!-- CERTIFICATE 4 -->
+
             <div class="cert-card">
+
+                <div class="cert-number">
+                    04 / CERTIFICATION
+                </div>
 
                 <h3>
                     Tebyan Career Guidance Program
@@ -1428,33 +1575,127 @@ footer {
 </section>
 
 
-<!-- ================= EXPERIENCE ================= -->
+<!-- ================= CONTINUOUS LEARNING ================= -->
 
-<section id="experience">
+<section id="learning">
 
     <div class="section-container">
 
         <div class="section-label">
-            Leadership & Experience
+            Additional Training
         </div>
 
         <h2 class="section-title">
-            Experience
+            Continuous Learning
         </h2>
 
         <p class="section-intro">
-            Leadership, coordination, communication, and
-            volunteering experiences developed through
-            university communities and initiatives.
+            Bootcamps, training programs, workshops, and
+            additional learning experiences that complement
+            my academic background.
         </p>
 
 
-        <div class="experience-list">
+        <div class="learning-box">
+
+            <div class="learning-list">
 
 
-            <div class="experience-item">
+                <div class="learning-item">
 
-                <div class="experience-date">
+                    <div>
+                        <h3>
+                            Data Analysis Bootcamp
+                        </h3>
+
+                        <p>
+                            LearnX · April 2026
+                        </p>
+                    </div>
+
+                    <span class="learning-type">
+                        Bootcamp
+                    </span>
+
+                </div>
+
+
+                <div class="learning-item">
+
+                    <div>
+                        <h3>
+                            Tebyan Career Guidance Program
+                        </h3>
+
+                        <p>
+                            Nuzmy · Career Development
+                        </p>
+                    </div>
+
+                    <span class="learning-type">
+                        Program
+                    </span>
+
+                </div>
+
+
+                <div class="learning-item">
+
+                    <div>
+                        <h3>
+                            Additional Workshops & Training
+                        </h3>
+
+                        <p>
+                            Professional and academic development
+                            experiences.
+                        </p>
+                    </div>
+
+                    <span class="learning-type">
+                        Learning
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VOLUNTEERING ================= -->
+
+<section id="involvement" class="involvement">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Volunteering & Student Involvement
+        </div>
+
+        <h2 class="section-title">
+            Involvement
+        </h2>
+
+        <p class="section-intro">
+            Leadership, volunteering, coordination, and student
+            community involvement developed through university
+            clubs and initiatives.
+        </p>
+
+
+        <div class="involvement-list">
+
+
+            <!-- 1 -->
+
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Aug 2025 – Jan 2026
                 </div>
 
@@ -1481,9 +1722,11 @@ footer {
             </div>
 
 
-            <div class="experience-item">
+            <!-- 2 -->
 
-                <div class="experience-date">
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Sep 2025 – Jan 2026
                 </div>
 
@@ -1508,9 +1751,11 @@ footer {
             </div>
 
 
-            <div class="experience-item">
+            <!-- 3 -->
 
-                <div class="experience-date">
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Aug 2025 – Jan 2026
                 </div>
 
@@ -1535,9 +1780,11 @@ footer {
             </div>
 
 
-            <div class="experience-item">
+            <!-- 4 -->
 
-                <div class="experience-date">
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Jan 2026 – Present
                 </div>
 
@@ -1562,9 +1809,11 @@ footer {
             </div>
 
 
-            <div class="experience-item">
+            <!-- 5 -->
 
-                <div class="experience-date">
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Mar 2026 – Present
                 </div>
 
@@ -1589,9 +1838,11 @@ footer {
             </div>
 
 
-            <div class="experience-item">
+            <!-- 6 -->
 
-                <div class="experience-date">
+            <div class="involvement-item">
+
+                <div class="involvement-date">
                     Jun 2025 – Present
                 </div>
 
@@ -1616,6 +1867,7 @@ footer {
 
             </div>
 
+
         </div>
 
     </div>
@@ -1625,7 +1877,7 @@ footer {
 
 <!-- ================= SKILLS ================= -->
 
-<section id="skills" class="skills">
+<section id="skills">
 
     <div class="section-container">
 
