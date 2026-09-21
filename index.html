@@ -22,10 +22,11 @@
     --white: #FFFFFF;
     --border: #DCE9EA;
 
-    --shadow: 0 12px 35px rgba(29, 48, 66, 0.07);
+    --shadow: 0 10px 28px rgba(29, 48, 66, 0.06);
 }
 
-/* -------------------- GENERAL -------------------- */
+
+/* ================= GENERAL ================= */
 
 * {
     margin: 0;
@@ -41,11 +42,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text);
     background: var(--background);
-    line-height: 1.7;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Professional background */
+
+/* Professional layered background */
 
 body::before {
     content: "";
@@ -54,17 +56,23 @@ body::before {
     z-index: -3;
 
     background:
-        radial-gradient(circle at 10% 15%,
-            rgba(121,174,184,0.12),
-            transparent 28%),
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(121,174,184,0.11),
+            transparent 27%
+        ),
 
-        radial-gradient(circle at 90% 30%,
-            rgba(121,174,184,0.09),
-            transparent 30%),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(121,174,184,0.08),
+            transparent 30%
+        ),
 
-        radial-gradient(circle at 50% 90%,
-            rgba(234,245,246,0.9),
-            transparent 35%),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(234,245,246,0.85),
+            transparent 35%
+        ),
 
         linear-gradient(
             135deg,
@@ -74,7 +82,8 @@ body::before {
         );
 }
 
-/* Subtle professional grid */
+
+/* Subtle grid */
 
 body::after {
     content: "";
@@ -85,12 +94,12 @@ body::after {
 
     background-image:
         linear-gradient(
-            rgba(121,174,184,0.035) 1px,
+            rgba(121,174,184,0.032) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(121,174,184,0.035) 1px,
+            rgba(121,174,184,0.032) 1px,
             transparent 1px
         );
 
@@ -103,7 +112,8 @@ body::after {
     );
 }
 
-/* -------------------- NAVBAR -------------------- */
+
+/* ================= NAVBAR ================= */
 
 nav {
     position: fixed;
@@ -113,7 +123,7 @@ nav {
 
     z-index: 1000;
 
-    padding: 22px 7%;
+    padding: 19px 7%;
 
     background: rgba(255,255,255,0.78);
     backdrop-filter: blur(16px);
@@ -131,22 +141,22 @@ nav {
 }
 
 .logo {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.4px;
     color: var(--navy);
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 27px;
     list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text);
-    font-size: 14px;
+    font-size: 13px;
     transition: 0.3s;
 }
 
@@ -154,7 +164,8 @@ nav {
     color: var(--cyan-dark);
 }
 
-/* -------------------- HERO -------------------- */
+
+/* ================= HERO ================= */
 
 .hero {
     min-height: 100vh;
@@ -162,7 +173,7 @@ nav {
     display: flex;
     align-items: center;
 
-    padding: 150px 7% 100px;
+    padding: 135px 7% 90px;
 
     position: relative;
     overflow: hidden;
@@ -172,8 +183,8 @@ nav {
     content: "";
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: 500px;
+    height: 500px;
 
     right: -180px;
     top: 100px;
@@ -183,31 +194,31 @@ nav {
     background:
         radial-gradient(
             circle,
-            rgba(121,174,184,0.17),
-            rgba(121,174,184,0.04) 45%,
+            rgba(121,174,184,0.15),
+            rgba(121,174,184,0.035) 45%,
             transparent 70%
         );
 
-    filter: blur(5px);
+    filter: blur(4px);
 }
 
 .hero::after {
     content: "";
     position: absolute;
 
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
 
-    left: -100px;
-    bottom: 30px;
+    left: -90px;
+    bottom: 25px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(121,174,184,0.14);
+    border: 1px solid rgba(121,174,184,0.12);
 
     box-shadow:
-        0 0 0 30px rgba(121,174,184,0.025),
-        0 0 0 60px rgba(121,174,184,0.018);
+        0 0 0 28px rgba(121,174,184,0.022),
+        0 0 0 56px rgba(121,174,184,0.014);
 }
 
 .hero-content {
@@ -221,57 +232,57 @@ nav {
 
 .hero-small {
     color: var(--cyan-dark);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
+    letter-spacing: 1.8px;
+    margin-bottom: 14px;
     text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: clamp(48px, 8vw, 88px);
+    font-size: clamp(46px, 7vw, 78px);
     line-height: 1;
-    letter-spacing: -3px;
+    letter-spacing: -2.5px;
 
     color: var(--navy);
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .hero h2 {
-    font-size: clamp(20px, 3vw, 30px);
+    font-size: clamp(18px, 2.5vw, 26px);
     font-weight: 500;
 
     color: var(--cyan-dark);
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .hero p {
     max-width: 700px;
 
-    font-size: 17px;
+    font-size: 15px;
     color: var(--muted);
 
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .btn {
     display: inline-block;
 
-    padding: 13px 24px;
+    padding: 11px 21px;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
 
     transition: 0.3s;
@@ -299,10 +310,11 @@ nav {
     transform: translateY(-2px);
 }
 
-/* -------------------- SECTIONS -------------------- */
+
+/* ================= SECTIONS ================= */
 
 section {
-    padding: 110px 7%;
+    padding: 85px 7%;
     position: relative;
 }
 
@@ -313,61 +325,67 @@ section {
 
 .section-label {
     color: var(--cyan-dark);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .section-title {
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(29px, 4vw, 42px);
+    font-weight: 650;
     color: var(--navy);
     line-height: 1.15;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 
 .section-intro {
-    max-width: 720px;
+    max-width: 700px;
     color: var(--muted);
-    margin-bottom: 50px;
+    font-size: 14px;
+    margin-bottom: 38px;
 }
 
-/* -------------------- ABOUT -------------------- */
+
+/* ================= ABOUT ================= */
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 60px;
     align-items: start;
 }
 
 .about-highlight {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.35;
     color: var(--navy);
     font-weight: 500;
 }
 
 .about-text p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--muted);
+    font-size: 14px;
 }
 
 .info-list {
-    margin-top: 30px;
+    margin-top: 23px;
     display: grid;
-    gap: 12px;
+    gap: 8px;
 }
 
 .info-item {
     display: flex;
     justify-content: space-between;
 
-    padding: 14px 0;
+    padding: 11px 0;
 
     border-bottom: 1px solid var(--border);
+
+    font-size: 13px;
 }
 
 .info-item span:first-child {
@@ -379,47 +397,46 @@ section {
     font-weight: 600;
 }
 
-/* -------------------- PROJECTS -------------------- */
+
+/* ================= PROJECTS ================= */
 
 .projects {
     background:
         linear-gradient(
             180deg,
-            rgba(234,245,246,0.35),
+            rgba(234,245,246,0.32),
             rgba(248,251,251,0.2)
         );
 }
 
 .projects-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 22px;
+    gap: 18px;
 }
 
 .project-card {
     position: relative;
 
-    background: rgba(255,255,255,0.82);
+    background: rgba(255,255,255,0.84);
 
     border: 1px solid var(--border);
 
-    border-radius: 18px;
+    border-radius: 17px;
 
-    padding: 30px;
+    padding: 26px;
 
-    min-height: 280px;
+    min-height: 265px;
 
     display: flex;
     flex-direction: column;
 
-    box-shadow: 0 8px 28px rgba(29,48,66,0.045);
+    box-shadow: 0 7px 24px rgba(29,48,66,0.04);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 
     overflow: hidden;
 }
@@ -429,47 +446,49 @@ section {
 
     position: absolute;
 
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
 
     right: -55px;
     top: -55px;
 
     border-radius: 50%;
 
-    background: rgba(121,174,184,0.08);
+    background: rgba(121,174,184,0.07);
 }
 
 .project-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
 
-    border-color: rgba(121,174,184,0.45);
+    border-color: rgba(121,174,184,0.4);
 
     box-shadow: var(--shadow);
 }
 
 .project-number {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--cyan-dark);
     font-weight: 700;
     letter-spacing: 1px;
 
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .project-card h3 {
     color: var(--navy);
-    font-size: 22px;
+    font-size: 19px;
+    font-weight: 600;
     line-height: 1.3;
 
-    margin-bottom: 15px;
+    margin-bottom: 11px;
 }
 
 .project-card p {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.55;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .project-tags {
@@ -477,13 +496,13 @@ section {
 
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 6px;
 }
 
 .project-tags span {
-    font-size: 11px;
+    font-size: 10px;
 
-    padding: 5px 9px;
+    padding: 4px 8px;
 
     border-radius: 20px;
 
@@ -492,7 +511,55 @@ section {
     color: var(--cyan-dark);
 }
 
-/* -------------------- EXPERIENCE -------------------- */
+
+/* ================= CERTIFICATIONS ================= */
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.cert-card {
+    padding: 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.76);
+}
+
+.cert-card h3 {
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cert-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.cert-card span {
+    display: inline-block;
+
+    margin-top: 9px;
+
+    font-size: 10px;
+
+    color: var(--cyan-dark);
+
+    background: var(--cyan-light);
+
+    padding: 4px 7px;
+
+    border-radius: 20px;
+}
+
+
+/* ================= EXPERIENCE ================= */
 
 .experience-list {
     display: grid;
@@ -504,44 +571,46 @@ section {
 .experience-item {
     display: grid;
 
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 205px 1fr;
 
-    gap: 40px;
+    gap: 35px;
 
-    padding: 30px 0;
+    padding: 24px 0;
 
     border-bottom: 1px solid var(--border);
 }
 
 .experience-date {
     color: var(--cyan-dark);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
 }
 
 .experience-item h3 {
     color: var(--navy);
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 3px;
 }
 
 .experience-item h4 {
     color: var(--cyan-dark);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .experience-item p {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     max-width: 750px;
 }
 
-/* -------------------- SKILLS -------------------- */
+
+/* ================= SKILLS ================= */
 
 .skills {
-    background: rgba(234,245,246,0.25);
+    background: rgba(234,245,246,0.22);
 }
 
 .skills-grid {
@@ -549,24 +618,25 @@ section {
 
     grid-template-columns: repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 16px;
 }
 
 .skill-box {
-    padding: 28px;
+    padding: 23px;
 
     background: rgba(255,255,255,0.8);
 
     border: 1px solid var(--border);
 
-    border-radius: 16px;
+    border-radius: 15px;
 }
 
 .skill-box h3 {
     color: var(--navy);
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: 600;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .skill-box ul {
@@ -575,9 +645,9 @@ section {
 
 .skill-box li {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 12px;
 
-    padding: 7px 0;
+    padding: 6px 0;
 
     border-bottom: 1px solid rgba(220,233,234,0.6);
 }
@@ -586,54 +656,8 @@ section {
     border-bottom: none;
 }
 
-/* -------------------- CERTIFICATIONS -------------------- */
 
-.cert-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 16px;
-}
-
-.cert-card {
-    padding: 22px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.75);
-}
-
-.cert-card h3 {
-    color: var(--navy);
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.cert-card p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.cert-card span {
-    display: inline-block;
-
-    margin-top: 12px;
-
-    font-size: 11px;
-
-    color: var(--cyan-dark);
-
-    background: var(--cyan-light);
-
-    padding: 4px 8px;
-
-    border-radius: 20px;
-}
-
-/* -------------------- CONTACT -------------------- */
+/* ================= CONTACT ================= */
 
 .contact-box {
     background:
@@ -645,41 +669,43 @@ section {
 
     border: 1px solid var(--border);
 
-    border-radius: 22px;
+    border-radius: 20px;
 
-    padding: 55px;
+    padding: 45px;
 
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 50px;
+    gap: 45px;
 
     box-shadow: var(--shadow);
 }
 
 .contact-box h2 {
     color: var(--navy);
-    font-size: 36px;
+    font-size: 31px;
+    font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 15px;
+    margin-bottom: 11px;
 }
 
 .contact-box p {
     color: var(--muted);
+    font-size: 13px;
 }
 
 .contact-links {
     display: grid;
-    gap: 15px;
+    gap: 11px;
 }
 
 .contact-link {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 
-    padding: 13px 0;
+    padding: 10px 0;
 
     border-bottom: 1px solid var(--border);
 
@@ -687,28 +713,30 @@ section {
 
     color: var(--navy);
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .contact-link:hover {
     color: var(--cyan-dark);
 }
 
-/* -------------------- FOOTER -------------------- */
+
+/* ================= FOOTER ================= */
 
 footer {
-    padding: 35px 7%;
+    padding: 28px 7%;
 
     border-top: 1px solid var(--border);
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
 
     text-align: center;
 }
 
-/* -------------------- RESPONSIVE -------------------- */
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
 
@@ -731,14 +759,15 @@ footer {
 
     .experience-item {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 7px;
     }
 }
+
 
 @media (max-width: 650px) {
 
     nav {
-        padding: 18px 5%;
+        padding: 17px 5%;
     }
 
     .nav-links {
@@ -746,15 +775,15 @@ footer {
     }
 
     section {
-        padding: 80px 6%;
+        padding: 70px 6%;
     }
 
     .hero {
-        padding: 130px 6% 80px;
+        padding: 120px 6% 70px;
     }
 
     .hero h1 {
-        font-size: 54px;
+        font-size: 52px;
         letter-spacing: -2px;
     }
 
@@ -772,23 +801,26 @@ footer {
 
     .contact-box {
         grid-template-columns: 1fr;
-        padding: 35px 25px;
-        gap: 30px;
+        padding: 32px 23px;
+        gap: 28px;
     }
 
     .contact-box h2 {
-        font-size: 30px;
+        font-size: 28px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- ==================== NAVBAR ==================== -->
+
+<!-- ================= NAVBAR ================= -->
 
 <nav>
+
     <div class="nav-container">
 
         <div class="logo">
@@ -796,18 +828,39 @@ footer {
         </div>
 
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#certifications">Certifications</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
 
     </div>
+
 </nav>
 
 
-<!-- ==================== HERO ==================== -->
+<!-- ================= HERO ================= -->
 
 <header class="hero">
 
@@ -826,14 +879,16 @@ footer {
         </h2>
 
         <p>
-            I'm a Senior Management Information Systems student interested
-            in exploring the intersection of business, technology, data,
-            and digital solutions. I enjoy understanding business needs,
-            solving problems, collaborating with others, and turning ideas
-            into practical solutions.
+            I'm a Senior Management Information Systems student
+            interested in exploring the intersection of business,
+            technology, data, and digital solutions. I enjoy
+            understanding business needs, solving problems,
+            collaborating with others, and turning ideas into
+            practical solutions.
         </p>
 
         <div class="hero-buttons">
+
             <a href="#projects" class="btn btn-primary">
                 View Projects
             </a>
@@ -841,6 +896,7 @@ footer {
             <a href="#contact" class="btn btn-outline">
                 Get in Touch
             </a>
+
         </div>
 
     </div>
@@ -848,7 +904,7 @@ footer {
 </header>
 
 
-<!-- ==================== ABOUT ==================== -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
@@ -861,6 +917,7 @@ footer {
         <div class="about-grid">
 
             <div>
+
                 <h2 class="section-title">
                     Business, technology,
                     and everything in between.
@@ -872,7 +929,9 @@ footer {
                     with a growing understanding of business
                     and technology.
                 </p>
+
             </div>
+
 
             <div class="about-text">
 
@@ -888,9 +947,11 @@ footer {
                     Through academic projects, student clubs,
                     leadership roles, and volunteering experiences,
                     I've developed a strong interest in working
-                    with people, organizing initiatives, understanding
-                    problems, and creating practical solutions.
+                    with people, organizing initiatives,
+                    understanding problems, and creating
+                    practical solutions.
                 </p>
+
 
                 <div class="info-list">
 
@@ -920,7 +981,7 @@ footer {
 </section>
 
 
-<!-- ==================== PROJECTS ==================== -->
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects" class="projects">
 
@@ -942,6 +1003,7 @@ footer {
 
 
         <div class="projects-grid">
+
 
             <!-- PROJECT 1 -->
 
@@ -1117,287 +1179,9 @@ footer {
 </section>
 
 
-<!-- ==================== EXPERIENCE ==================== -->
+<!-- ================= CERTIFICATIONS ================= -->
 
-<section id="experience">
-
-    <div class="section-container">
-
-        <div class="section-label">
-            Leadership & Experience
-        </div>
-
-        <h2 class="section-title">
-            Experience
-        </h2>
-
-        <p class="section-intro">
-            Leadership, coordination, communication, and
-            volunteering experiences developed through
-            university communities and initiatives.
-        </p>
-
-
-        <div class="experience-list">
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Aug 2025 – Jan 2026
-                </div>
-
-                <div>
-                    <h3>
-                        Coordination Unit Leader
-                    </h3>
-
-                    <h4>
-                        Cultural & Social Club
-                    </h4>
-
-                    <p>
-                        Coordinated public relations activities,
-                        sponsorships, events, and team responsibilities.
-                        Distributed tasks among members and followed
-                        up continuously to ensure smooth execution
-                        and coordination.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Sep 2025 – Jan 2026
-                </div>
-
-                <div>
-                    <h3>
-                        Public Relations Leader
-                    </h3>
-
-                    <h4>
-                        Weqa Initiative
-                    </h4>
-
-                    <p>
-                        Sought sponsorships and success partners,
-                        supported external communication, and
-                        contributed to partnership development.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Aug 2025 – Jan 2026
-                </div>
-
-                <div>
-                    <h3>
-                        Marketing Team Member
-                    </h3>
-
-                    <h4>
-                        Management Information Systems Club
-                    </h4>
-
-                    <p>
-                        Contributed to photography, visual content,
-                        and promotional materials used to present
-                        and promote club activities.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Jan 2026 – Present
-                </div>
-
-                <div>
-                    <h3>
-                        Coordination Team Member
-                    </h3>
-
-                    <h4>
-                        LearnX — MIS Club
-                    </h4>
-
-                    <p>
-                        Participated in coordination activities
-                        and initiatives supporting the club's
-                        programs and events.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Mar 2026 – Present
-                </div>
-
-                <div>
-                    <h3>
-                        Public Relations Team Member
-                    </h3>
-
-                    <h4>
-                        Project Management Club
-                    </h4>
-
-                    <p>
-                        Contributed to public relations activities,
-                        communication, and initiatives supporting
-                        the club's projects and events.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="experience-item">
-
-                <div class="experience-date">
-                    Jun 2025 – Present
-                </div>
-
-                <div>
-                    <h3>
-                        Volunteer
-                    </h3>
-
-                    <h4>
-                        FAD
-                    </h4>
-
-                    <p>
-                        Supported university students throughout
-                        their academic journey by contributing to
-                        major and course profiles and providing
-                        academic guidance and support.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==================== SKILLS ==================== -->
-
-<section id="skills" class="skills">
-
-    <div class="section-container">
-
-        <div class="section-label">
-            Capabilities
-        </div>
-
-        <h2 class="section-title">
-            Skills
-        </h2>
-
-        <p class="section-intro">
-            A combination of professional, business,
-            analytical, technical, and digital skills.
-        </p>
-
-
-        <div class="skills-grid">
-
-            <div class="skill-box">
-
-                <h3>
-                    Professional Strengths
-                </h3>
-
-                <ul>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Project Management</li>
-                    <li>Teamwork & Collaboration</li>
-                    <li>Coordination</li>
-                </ul>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    Business
-                </h3>
-
-                <ul>
-                    <li>Business Analysis</li>
-                    <li>Business Processes</li>
-                    <li>Digital Business</li>
-                    <li>Business Development</li>
-                    <li>Digital Marketing</li>
-                </ul>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    Data & Technology
-                </h3>
-
-                <ul>
-                    <li>Data Analysis</li>
-                    <li>Power BI</li>
-                    <li>SQL</li>
-                    <li>Python</li>
-                    <li>Database Design</li>
-                </ul>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    Digital
-                </h3>
-
-                <ul>
-                    <li>Web Development</li>
-                    <li>HTML & CSS</li>
-                    <li>ASP.NET</li>
-                    <li>Visual Content</li>
-                    <li>Social Media</li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==================== CERTIFICATIONS ==================== -->
-
-<section>
+<section id="certifications">
 
     <div class="section-container">
 
@@ -1416,6 +1200,7 @@ footer {
 
 
         <div class="cert-grid">
+
 
             <div class="cert-card">
 
@@ -1491,7 +1276,299 @@ footer {
 </section>
 
 
-<!-- ==================== CONTACT ==================== -->
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Leadership & Experience
+        </div>
+
+        <h2 class="section-title">
+            Experience
+        </h2>
+
+        <p class="section-intro">
+            Leadership, coordination, communication, and
+            volunteering experiences developed through
+            university communities and initiatives.
+        </p>
+
+
+        <div class="experience-list">
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Aug 2025 – Jan 2026
+                </div>
+
+                <div>
+
+                    <h3>
+                        Coordination Unit Leader
+                    </h3>
+
+                    <h4>
+                        Cultural & Social Club
+                    </h4>
+
+                    <p>
+                        Coordinated public relations activities,
+                        sponsorships, events, and team responsibilities.
+                        Distributed tasks among members and followed
+                        up continuously to ensure smooth execution
+                        and coordination.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Sep 2025 – Jan 2026
+                </div>
+
+                <div>
+
+                    <h3>
+                        Public Relations Leader
+                    </h3>
+
+                    <h4>
+                        Weqa Initiative
+                    </h4>
+
+                    <p>
+                        Sought sponsorships and success partners,
+                        supported external communication, and
+                        contributed to partnership development.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Aug 2025 – Jan 2026
+                </div>
+
+                <div>
+
+                    <h3>
+                        Marketing Team Member
+                    </h3>
+
+                    <h4>
+                        Management Information Systems Club
+                    </h4>
+
+                    <p>
+                        Contributed to photography, visual content,
+                        and promotional materials used to present
+                        and promote club activities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Jan 2026 – Present
+                </div>
+
+                <div>
+
+                    <h3>
+                        Coordination Team Member
+                    </h3>
+
+                    <h4>
+                        LearnX — MIS Club
+                    </h4>
+
+                    <p>
+                        Participated in coordination activities
+                        and initiatives supporting the club's
+                        programs and events.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Mar 2026 – Present
+                </div>
+
+                <div>
+
+                    <h3>
+                        Public Relations Team Member
+                    </h3>
+
+                    <h4>
+                        Project Management Club
+                    </h4>
+
+                    <p>
+                        Contributed to public relations activities,
+                        communication, and initiatives supporting
+                        the club's projects and events.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Jun 2025 – Present
+                </div>
+
+                <div>
+
+                    <h3>
+                        Volunteer
+                    </h3>
+
+                    <h4>
+                        FAD
+                    </h4>
+
+                    <p>
+                        Supported university students throughout
+                        their academic journey by contributing to
+                        major and course profiles and providing
+                        academic guidance and support.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="skills">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Capabilities
+        </div>
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <p class="section-intro">
+            A combination of professional, business,
+            analytical, technical, and digital skills.
+        </p>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-box">
+
+                <h3>
+                    Professional Strengths
+                </h3>
+
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Project Management</li>
+                    <li>Teamwork & Collaboration</li>
+                    <li>Coordination</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    Business
+                </h3>
+
+                <ul>
+                    <li>Business Analysis</li>
+                    <li>Business Processes</li>
+                    <li>Digital Business</li>
+                    <li>Business Development</li>
+                    <li>Digital Marketing</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    Data & Technology
+                </h3>
+
+                <ul>
+                    <li>Data Analysis</li>
+                    <li>Power BI</li>
+                    <li>SQL</li>
+                    <li>Python</li>
+                    <li>Database Design</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    Digital
+                </h3>
+
+                <ul>
+                    <li>Web Development</li>
+                    <li>HTML & CSS</li>
+                    <li>ASP.NET</li>
+                    <li>Visual Content</li>
+                    <li>Social Media</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
@@ -1550,7 +1627,7 @@ footer {
 </section>
 
 
-<!-- ==================== FOOTER ==================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
