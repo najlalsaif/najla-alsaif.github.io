@@ -230,14 +230,38 @@ nav {
     z-index: 2;
 }
 
-.hero-small {
-    color: var(--cyan-dark);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    margin-bottom: 14px;
-    text-transform: uppercase;
+
+/* Hero badges */
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
 }
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(121,174,184,0.28);
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.62);
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* Hero text */
 
 .hero h1 {
     font-size: clamp(46px, 7vw, 78px);
@@ -426,7 +450,7 @@ section {
 
     padding: 26px;
 
-    min-height: 265px;
+    min-height: 300px;
 
     display: flex;
     flex-direction: column;
@@ -488,15 +512,15 @@ section {
     font-size: 13px;
     line-height: 1.55;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .project-tags {
-    margin-top: auto;
-
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+
+    margin-bottom: 15px;
 }
 
 .project-tags span {
@@ -509,6 +533,33 @@ section {
     background: var(--cyan-light);
 
     color: var(--cyan-dark);
+}
+
+
+/* Project links */
+
+.project-links {
+    margin-top: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.project-link {
+    color: var(--cyan-dark);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    color: var(--navy);
+    transform: translateX(3px);
 }
 
 
@@ -787,6 +838,15 @@ footer {
         letter-spacing: -2px;
     }
 
+    .hero-badges {
+        gap: 8px;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+        padding: 8px 12px;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -866,17 +926,28 @@ footer {
 
     <div class="hero-content">
 
-        <div class="hero-small">
-            Management Information Systems
+        <div class="hero-badges">
+
+            <div class="hero-badge">
+                SENIOR MIS STUDENT · KING SAUD UNIVERSITY
+            </div>
+
+            <div class="hero-badge">
+                EXPECTED GRADUATION · JANUARY 2028
+            </div>
+
         </div>
+
 
         <h1>
             Najla Alsaif.
         </h1>
 
+
         <h2>
             Senior Management Information Systems Student
         </h2>
+
 
         <p>
             I'm a Senior Management Information Systems student
@@ -887,14 +958,15 @@ footer {
             practical solutions.
         </p>
 
+
         <div class="hero-buttons">
 
-            <a href="#projects" class="btn btn-primary">
-                View Projects
+            <a href="#about" class="btn btn-primary">
+                About Me ↗
             </a>
 
             <a href="#contact" class="btn btn-outline">
-                Get in Touch
+                Contact Me ✉
             </a>
 
         </div>
@@ -1030,6 +1102,18 @@ footer {
                     <span>System Design</span>
                 </div>
 
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_ORDER_MANAGEMENT_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
             </div>
 
 
@@ -1056,6 +1140,26 @@ footer {
                     <span>ASP.NET</span>
                     <span>HTML & CSS</span>
                     <span>Web Development</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_ALLURE_PROJECT_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                    <a
+                        href="PASTE_ALLURE_WEBSITE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        Visit Website →
+                    </a>
+
                 </div>
 
             </div>
@@ -1086,6 +1190,18 @@ footer {
                     <span>DSS</span>
                 </div>
 
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_DSS_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
             </div>
 
 
@@ -1112,6 +1228,18 @@ footer {
                     <span>SQL</span>
                     <span>Database Design</span>
                     <span>EER</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_DATABASE_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
                 </div>
 
             </div>
@@ -1142,6 +1270,18 @@ footer {
                     <span>Strategy</span>
                 </div>
 
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_DIGITAL_MARKETING_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
+                </div>
+
             </div>
 
 
@@ -1168,6 +1308,18 @@ footer {
                     <span>BPMN</span>
                     <span>Process Analysis</span>
                     <span>Business Processes</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="PASTE_BPMN_DRIVE_LINK_HERE"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Project →
+                    </a>
+
                 </div>
 
             </div>
