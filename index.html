@@ -10,14 +10,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --blue: #2563EB;
-  --blue-light: #EFF6FF;
-  --navy: #172033;
-  --text: #344054;
-  --muted: #667085;
-  --light: #F8FAFC;
+  --cyan: #79AEB8;
+  --cyan-dark: #5E929D;
+  --cyan-light: #EAF5F6;
+  --cyan-soft: #F4FAFA;
+
+  --navy: #1D3042;
+  --text: #3E5263;
+  --muted: #72818C;
+
   --white: #FFFFFF;
-  --border: #E4E7EC;
+  --background: #F8FBFB;
+  --border: #DCE9EA;
 }
 
 * {
@@ -34,7 +38,7 @@ body {
   font-family: "Inter", Arial, sans-serif;
   background: var(--white);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 a {
@@ -54,7 +58,7 @@ nav {
   top: 0;
   z-index: 100;
   background: rgba(255,255,255,.94);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -66,14 +70,14 @@ nav {
 }
 
 .logo {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -.02em;
   color: var(--navy);
 }
 
 .logo span {
-  color: var(--blue);
+  color: var(--cyan-dark);
 }
 
 .nav-links {
@@ -84,92 +88,89 @@ nav {
   color: var(--muted);
 }
 
+.nav-links a {
+  transition: .2s;
+}
+
 .nav-links a:hover {
-  color: var(--blue);
+  color: var(--cyan-dark);
 }
 
 /* ================= HERO ================= */
 
 .hero {
-  background: var(--light);
   min-height: calc(100vh - 74px);
   display: flex;
   align-items: center;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(121,174,184,.13), transparent 25%),
+    linear-gradient(135deg, #FFFFFF 0%, #F3FAFA 55%, #EAF5F6 100%);
   position: relative;
   overflow: hidden;
 }
 
-.hero::before {
-  content: "";
+.hero-grid {
   position: absolute;
-  width: 420px;
-  height: 420px;
-  border: 1px solid #DCE8FF;
-  border-radius: 50%;
-  right: -120px;
-  top: -120px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border: 1px solid #E7EEF9;
-  border-radius: 50%;
-  right: 40px;
-  top: 40px;
+  inset: 0;
+  opacity: .45;
+  background-image:
+    linear-gradient(rgba(121,174,184,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121,174,184,.07) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to right, transparent, black 55%, transparent);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  padding: 90px 0;
 }
 
 .hero-label {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--blue);
-  font-size: 12px;
+  color: var(--cyan-dark);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .13em;
+  letter-spacing: .15em;
   text-transform: uppercase;
   margin-bottom: 24px;
 }
 
 .hero-label::before {
   content: "";
-  width: 28px;
-  height: 2px;
-  background: var(--blue);
+  width: 30px;
+  height: 1px;
+  background: var(--cyan-dark);
 }
 
 .hero h1 {
+  color: var(--navy);
   font-size: clamp(55px, 9vw, 108px);
   line-height: .95;
   letter-spacing: -.075em;
-  color: var(--navy);
   font-weight: 800;
 }
 
 .hero h1 span {
-  color: var(--blue);
+  color: var(--cyan-dark);
 }
 
 .hero-subtitle {
-  margin-top: 25px;
-  font-size: clamp(18px, 2.5vw, 25px);
+  margin-top: 24px;
   color: var(--navy);
+  font-size: clamp(18px, 2.5vw, 25px);
   font-weight: 600;
+  letter-spacing: -.025em;
 }
 
 .hero-description {
-  max-width: 620px;
+  max-width: 650px;
   margin-top: 15px;
   color: var(--muted);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .hero-actions {
@@ -190,7 +191,7 @@ nav {
 }
 
 .button-primary {
-  background: var(--blue);
+  background: var(--cyan-dark);
   color: white;
 }
 
@@ -204,14 +205,14 @@ nav {
   transform: translateY(-2px);
 }
 
-/* ================= GENERAL SECTIONS ================= */
+/* ================= SECTIONS ================= */
 
 section {
   padding: 100px 0;
 }
 
 .section-label {
-  color: var(--blue);
+  color: var(--cyan-dark);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .14em;
@@ -222,7 +223,7 @@ section {
 .section-title {
   color: var(--navy);
   font-size: clamp(34px, 5vw, 54px);
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -.055em;
 }
 
@@ -230,7 +231,7 @@ section {
   max-width: 470px;
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 /* ================= ABOUT ================= */
@@ -250,22 +251,23 @@ section {
 .about-grid {
   display: grid;
   grid-template-columns: .85fr 1.15fr;
-  gap: 80px;
+  gap: 75px;
 }
 
 .about-highlight {
-  background: var(--blue-light);
-  border: 1px solid #DCE8FF;
-  border-radius: 16px;
-  padding: 35px;
+  background:
+    linear-gradient(145deg, #F4FAFA, #E8F4F5);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 36px;
   color: var(--navy);
   font-size: 27px;
-  line-height: 1.35;
+  line-height: 1.4;
   font-weight: 700;
 }
 
 .about-highlight span {
-  color: var(--blue);
+  color: var(--cyan-dark);
 }
 
 .about-text {
@@ -289,11 +291,12 @@ section {
   padding: 18px;
   border: 1px solid var(--border);
   border-radius: 10px;
+  background: var(--cyan-soft);
 }
 
 .info small {
   display: block;
-  color: #98A2B3;
+  color: #8A9AA3;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -309,7 +312,7 @@ section {
 /* ================= PROJECTS ================= */
 
 .projects {
-  background: var(--light);
+  background: var(--background);
 }
 
 .projects-header {
@@ -320,66 +323,165 @@ section {
   margin-bottom: 50px;
 }
 
-.project-list {
-  border-top: 1px solid var(--border);
-}
-
-.project {
+.featured-projects {
   display: grid;
-  grid-template-columns: 70px 1fr 230px;
-  gap: 30px;
-  align-items: start;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
-  transition: .2s;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+  margin-bottom: 55px;
 }
 
-.project:hover {
+.featured-card {
   background: white;
-  padding-left: 18px;
-  padding-right: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px;
+  transition: .25s;
 }
 
-.project-number {
-  color: var(--blue);
-  font-size: 12px;
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(45,80,90,.08);
+}
+
+.featured-number {
+  color: var(--cyan-dark);
+  font-size: 11px;
   font-weight: 800;
+  letter-spacing: .12em;
 }
 
-.project h3 {
+.featured-card h3 {
   color: var(--navy);
-  font-size: 21px;
-  letter-spacing: -.025em;
-  margin-bottom: 8px;
+  font-size: 25px;
+  letter-spacing: -.035em;
+  margin: 25px 0 10px;
 }
 
-.project p {
+.featured-card p {
   color: var(--muted);
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-.project-tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  justify-content: flex-end;
+  margin-top: 22px;
 }
 
 .tag {
-  background: white;
-  border: 1px solid var(--border);
-  color: #475467;
+  background: var(--cyan-light);
+  color: var(--cyan-dark);
   padding: 6px 9px;
   border-radius: 6px;
   font-size: 10px;
   font-weight: 700;
 }
 
+.additional-title {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.project-list {
+  border-top: 1px solid var(--border);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 60px 1fr 220px;
+  gap: 30px;
+  align-items: start;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-number {
+  color: var(--cyan-dark);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.project h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* ================= LEADERSHIP ================= */
+
+.leadership {
+  background: white;
+}
+
+.leadership-header {
+  margin-bottom: 45px;
+}
+
+.experience-list {
+  border-top: 1px solid var(--border);
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 190px 1fr 170px;
+  gap: 35px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-date {
+  color: var(--cyan-dark);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.experience h3 {
+  color: var(--navy);
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.experience-role {
+  color: var(--cyan-dark);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.experience p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.experience-type {
+  text-align: right;
+  color: #8B98A2;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 700;
+}
+
 /* ================= SKILLS ================= */
 
 .skills {
-  background: white;
+  background: var(--background);
 }
 
 .skills-header {
@@ -392,6 +494,7 @@ section {
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
+  background: white;
 }
 
 .skill-box {
@@ -404,7 +507,7 @@ section {
 }
 
 .skill-number {
-  color: var(--blue);
+  color: var(--cyan-dark);
   font-size: 11px;
   font-weight: 800;
 }
@@ -423,39 +526,75 @@ section {
   color: var(--muted);
   font-size: 12px;
   padding: 6px 0;
-  border-bottom: 1px solid #F0F2F5;
+  border-bottom: 1px solid #EFF3F4;
+}
+
+/* ================= CERTIFICATIONS ================= */
+
+.certifications {
+  background: white;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+
+.cert {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--cyan-soft);
+}
+
+.cert h3 {
+  color: var(--navy);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.cert p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.cert span {
+  display: inline-block;
+  color: var(--cyan-dark);
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 9px;
 }
 
 /* ================= CONTACT ================= */
 
 .contact {
-  background: var(--light);
+  background:
+    linear-gradient(135deg, #F3FAFA, #E8F4F5);
 }
 
 .contact-box {
-  background: var(--navy);
+  border: 1px solid var(--border);
   border-radius: 20px;
+  background: white;
   padding: 55px;
   display: grid;
-  grid-template-columns: 1fr .7fr;
+  grid-template-columns: 1fr .65fr;
   gap: 80px;
   align-items: end;
 }
 
-.contact-box .section-label {
-  color: #8DB5FF;
-}
-
 .contact-title {
-  color: white;
-  font-size: clamp(40px, 6vw, 68px);
+  color: var(--navy);
+  font-size: clamp(42px, 6vw, 70px);
   line-height: 1;
-  letter-spacing: -.06em;
+  letter-spacing: -.065em;
 }
 
 .contact-description {
-  color: #B8C2D1;
-  max-width: 540px;
+  color: var(--muted);
+  max-width: 560px;
   margin-top: 18px;
   font-size: 14px;
 }
@@ -469,15 +608,15 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 17px 0;
-  border-bottom: 1px solid #34415A;
-  color: white;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--navy);
   font-size: 14px;
   font-weight: 600;
 }
 
 .contact-link span {
-  color: #8DB5FF;
+  color: var(--cyan-dark);
 }
 
 /* ================= FOOTER ================= */
@@ -486,7 +625,7 @@ footer {
   padding: 25px 0;
   display: flex;
   justify-content: space-between;
-  color: #98A2B3;
+  color: #8B98A2;
   font-size: 11px;
   border-top: 1px solid var(--border);
 }
@@ -495,17 +634,8 @@ footer {
 
 @media(max-width:850px) {
 
-  .nav-links {
-    gap: 15px;
-  }
-
   .hero {
     min-height: auto;
-    padding: 80px 0 90px;
-  }
-
-  .hero h1 {
-    font-size: clamp(52px, 14vw, 82px);
   }
 
   .about-header,
@@ -519,17 +649,29 @@ footer {
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 30px;
+  }
+
+  .featured-projects {
+    grid-template-columns: 1fr;
   }
 
   .project {
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 45px 1fr;
     gap: 15px;
   }
 
   .project-tags {
     grid-column: 2;
     justify-content: flex-start;
+  }
+
+  .experience {
+    grid-template-columns: 150px 1fr;
+  }
+
+  .experience-type {
+    display: none;
   }
 
   .skills-grid {
@@ -566,6 +708,14 @@ footer {
     padding: 75px 0;
   }
 
+  .hero-content {
+    padding: 75px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 15vw, 80px);
+  }
+
   .hero-actions {
     flex-direction: column;
   }
@@ -574,7 +724,8 @@ footer {
     width: 100%;
   }
 
-  .info-grid {
+  .info-grid,
+  .cert-grid {
     grid-template-columns: 1fr;
   }
 
@@ -591,6 +742,11 @@ footer {
     border-bottom: none;
   }
 
+  .experience {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
   footer {
     display: block;
   }
@@ -605,6 +761,7 @@ footer {
 
 <body>
 
+
 <!-- NAVIGATION -->
 
 <nav>
@@ -617,6 +774,7 @@ footer {
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#leadership">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
@@ -629,6 +787,8 @@ footer {
 
 <header class="hero">
 
+  <div class="hero-grid"></div>
+
   <div class="container hero-content">
 
     <div class="hero-label">
@@ -640,20 +800,20 @@ footer {
     </h1>
 
     <div class="hero-subtitle">
-      MIS Student • Data & Technology Enthusiast
+      Senior Management Information Systems Student
     </div>
 
     <p class="hero-description">
-      Final-year Management Information Systems student interested in
-      data analysis, information systems, project management, and
-      digital business. I enjoy turning business needs into clear,
-      practical technology solutions.
+      I'm a Senior Management Information Systems student interested in
+      exploring the intersection of business, technology, data, and digital
+      solutions. I enjoy understanding business needs, solving problems,
+      collaborating with others, and turning ideas into practical solutions.
     </p>
 
     <div class="hero-actions">
 
       <a href="#projects" class="button button-primary">
-        View My Work ↗
+        Explore My Work ↗
       </a>
 
       <a href="#contact" class="button button-secondary">
@@ -676,16 +836,21 @@ footer {
     <div class="about-header">
 
       <div>
-        <div class="section-label">01 — About Me</div>
+
+        <div class="section-label">
+          01 — About Me
+        </div>
+
         <h2 class="section-title">
-          Building at the intersection<br>
-          of business & technology.
+          Business, technology,<br>
+          and everything in between.
         </h2>
+
       </div>
 
       <p class="section-description">
-        A portfolio of academic work, technical skills, and experiences
-        developed throughout my Management Information Systems journey.
+        A portfolio reflecting my academic journey, projects,
+        leadership experiences, and growing professional interests.
       </p>
 
     </div>
@@ -694,26 +859,29 @@ footer {
     <div class="about-grid">
 
       <div class="about-highlight">
-        I turn <span>ideas, data, and business needs</span>
-        into structured digital solutions.
+
+        I bring together
+        <span>problem solving, communication,
+        and project management</span>
+        with a growing understanding of business and technology.
+
       </div>
 
 
       <div class="about-text">
 
         <p>
-          I am a Management Information Systems student at King Saud University,
-          currently in my final year. My interests include data analysis,
-          information systems, project management, digital business,
-          and process improvement.
+          I'm a Senior Management Information Systems student at King Saud University.
+          My interests span business analysis, project management, digital business,
+          business development, data, and technology.
         </p>
 
         <p>
-          Through university projects, I have gained experience with
-          requirements analysis, process modeling, dashboards, databases,
-          web development, and business-focused digital projects.
+          Through academic projects, student organizations, leadership roles,
+          and volunteering, I have developed experience in collaboration,
+          coordination, communication, problem solving, and turning ideas
+          into structured and practical outcomes.
         </p>
-
 
         <div class="info-grid">
 
@@ -728,8 +896,8 @@ footer {
           </div>
 
           <div class="info">
-            <small>Status</small>
-            <strong>Final-Year Student</strong>
+            <small>Year</small>
+            <strong>Fourth-Year Student</strong>
           </div>
 
         </div>
@@ -752,69 +920,94 @@ footer {
     <div class="projects-header">
 
       <div>
-        <div class="section-label">02 — Selected Work</div>
+
+        <div class="section-label">
+          02 — Selected Work
+        </div>
+
         <h2 class="section-title">
-          Projects I've worked on.
+          Projects that shaped<br>
+          my experience.
         </h2>
+
       </div>
 
       <p class="section-description">
-        Selected academic projects covering systems analysis,
-        data visualization, web development, and digital business.
+        Selected projects where I explored business needs,
+        digital solutions, data, processes, and technology.
       </p>
 
     </div>
 
 
-    <div class="project-list">
+    <!-- FEATURED PROJECTS -->
+
+    <div class="featured-projects">
 
 
-      <article class="project">
+      <article class="featured-card">
 
-        <div class="project-number">01</div>
-
-        <div>
-
-          <h3>Order Management System</h3>
-
-          <p>
-            Designed a proposed order management solution for a local
-            abaya brand, focusing on order flow, customer needs,
-            payment, shipping, and system processes.
-          </p>
-
+        <div class="featured-number">
+          FEATURED PROJECT / 01
         </div>
 
-        <div class="project-tags">
-          <span class="tag">Systems Analysis</span>
-          <span class="tag">DFD</span>
-          <span class="tag">Requirements</span>
-        </div>
+        <h3>
+          Order Management System
+        </h3>
 
-      </article>
+        <p>
+          Designed a proposed digital order management solution for
+          a local abaya brand. The project focused on understanding
+          business needs and creating structured workflows for orders,
+          inventory, payments, shipping, and customer management.
+        </p>
 
-
-      <article class="project">
-
-        <div class="project-number">02</div>
-
-        <div>
-
-          <h3>Process Analysis & BPMN</h3>
-
-          <p>
-            Modeled business processes using BPMN to represent
-            activities, decisions, events, and process flow clearly.
-          </p>
-
-        </div>
-
-        <div class="project-tags">
-          <span class="tag">BPMN</span>
+        <div class="tags">
+          <span class="tag">Business Requirements</span>
           <span class="tag">Process Analysis</span>
+          <span class="tag">DFD</span>
+          <span class="tag">Team Collaboration</span>
         </div>
 
       </article>
+
+
+      <article class="featured-card">
+
+        <div class="featured-number">
+          FEATURED PROJECT / 02
+        </div>
+
+        <h3>
+          Allure Salon Web System
+        </h3>
+
+        <p>
+          Designed and developed a web-based salon system supporting
+          customer registration, service browsing, appointment booking,
+          profile management, and user interaction. The project focused
+          on translating user needs into a practical digital solution.
+        </p>
+
+        <div class="tags">
+          <span class="tag">ASP.NET</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Visual Studio</span>
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- ADDITIONAL PROJECTS -->
+
+    <h3 class="additional-title">
+      Additional Academic Projects
+    </h3>
+
+    <div class="project-list">
 
 
       <article class="project">
@@ -823,21 +1016,23 @@ footer {
 
         <div>
 
-          <h3>Allure Salon Web System</h3>
+          <h3>
+            Decision Support System
+          </h3>
 
           <p>
-            Developed a web-based salon system with registration,
-            login, booking, services, user dashboard,
-            and profile management.
+            Developed a data-driven solution using traffic and weather
+            data, with Power BI dashboards designed to identify patterns,
+            congestion levels, travel-time reliability, and factors
+            affecting traffic delays.
           </p>
 
         </div>
 
         <div class="project-tags">
-          <span class="tag">ASP.NET</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Visual Studio</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">KPI</span>
         </div>
 
       </article>
@@ -849,19 +1044,22 @@ footer {
 
         <div>
 
-          <h3>Power BI Dashboard</h3>
+          <h3>
+            Database System
+          </h3>
 
           <p>
-            Created interactive dashboards and KPI visualizations
-            to transform datasets into clear business insights.
+            Designed a relational database system covering customer
+            management, movie scheduling, seat reservations, food and
+            beverage ordering, staff management, and hall administration.
           </p>
 
         </div>
 
         <div class="project-tags">
-          <span class="tag">Power BI</span>
-          <span class="tag">KPI</span>
-          <span class="tag">Data Analysis</span>
+          <span class="tag">SQL</span>
+          <span class="tag">EER</span>
+          <span class="tag">Database Design</span>
         </div>
 
       </article>
@@ -873,11 +1071,14 @@ footer {
 
         <div>
 
-          <h3>Digital Marketing Project</h3>
+          <h3>
+            Digital Marketing Project
+          </h3>
 
           <p>
-            Analyzed digital environments, customer-focused marketing
-            elements, social media, and digital business opportunities.
+            Explored digital environments, customer-focused marketing,
+            social media, and digital business opportunities through
+            strategic analysis and project-based work.
           </p>
 
         </div>
@@ -898,6 +1099,220 @@ footer {
 </section>
 
 
+<!-- LEADERSHIP -->
+
+<section id="leadership" class="leadership">
+
+  <div class="container">
+
+    <div class="leadership-header">
+
+      <div class="section-label">
+        03 — Leadership & Involvement
+      </div>
+
+      <h2 class="section-title">
+        Beyond the classroom.
+      </h2>
+
+    </div>
+
+
+    <div class="experience-list">
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Aug 2025 – Jan 2026
+        </div>
+
+        <div>
+
+          <h3>
+            Cultural & Social Club
+          </h3>
+
+          <div class="experience-role">
+            Coordination Unit Leader
+          </div>
+
+          <p>
+            Coordinated public relations activities, sponsorships,
+            events, and team responsibilities. Distributed tasks among
+            members and maintained continuous follow-up to support
+            smooth execution and effective team coordination.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Leadership
+        </div>
+
+      </article>
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Sep 2025 – Jan 2026
+        </div>
+
+        <div>
+
+          <h3>
+            Weqa Initiative
+          </h3>
+
+          <div class="experience-role">
+            Public Relations Leader
+          </div>
+
+          <p>
+            Led public relations efforts and contributed to identifying
+            potential sponsors and strategic partners while supporting
+            external communication and partnership development.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Leadership
+        </div>
+
+      </article>
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Aug 2025 – Jan 2026
+        </div>
+
+        <div>
+
+          <h3>
+            Management Information Systems Club
+          </h3>
+
+          <div class="experience-role">
+            Marketing Team Member
+          </div>
+
+          <p>
+            Contributed to marketing activities through photography,
+            visual content creation, and design, supporting the
+            presentation and promotion of club activities.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Marketing
+        </div>
+
+      </article>
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Jan 2026 – Present
+        </div>
+
+        <div>
+
+          <h3>
+            LearnX — MIS Club
+          </h3>
+
+          <div class="experience-role">
+            Coordination Team Member
+          </div>
+
+          <p>
+            Contributed to coordination activities and supported
+            initiatives organized within LearnX.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Involvement
+        </div>
+
+      </article>
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Mar 2026 – Present
+        </div>
+
+        <div>
+
+          <h3>
+            Project Management Club
+          </h3>
+
+          <div class="experience-role">
+            Public Relations Team Member
+          </div>
+
+          <p>
+            Contributing to public relations activities and supporting
+            communication and engagement initiatives within the club.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Involvement
+        </div>
+
+      </article>
+
+
+      <article class="experience">
+
+        <div class="experience-date">
+          Jun 2025 – Present
+        </div>
+
+        <div>
+
+          <h3>
+            FAD
+          </h3>
+
+          <div class="experience-role">
+            Volunteer
+          </div>
+
+          <p>
+            Supported university students throughout their academic
+            journey by contributing to major and course profiles and
+            providing academic guidance and support.
+          </p>
+
+        </div>
+
+        <div class="experience-type">
+          Volunteering
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- SKILLS -->
 
 <section id="skills" class="skills">
@@ -906,10 +1321,12 @@ footer {
 
     <div class="skills-header">
 
-      <div class="section-label">03 — Skills</div>
+      <div class="section-label">
+        04 — Skills
+      </div>
 
       <h2 class="section-title">
-        What I work with.
+        What I bring to the table.
       </h2>
 
     </div>
@@ -922,14 +1339,16 @@ footer {
 
         <span class="skill-number">01</span>
 
-        <h3>Data & Analytics</h3>
+        <h3>
+          Professional Strengths
+        </h3>
 
         <ul class="skill-list">
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Data Analysis</li>
-          <li>Dashboards</li>
-          <li>KPI Development</li>
+          <li>Problem Solving</li>
+          <li>Communication</li>
+          <li>Project Management</li>
+          <li>Teamwork & Collaboration</li>
+          <li>Coordination</li>
         </ul>
 
       </div>
@@ -939,15 +1358,16 @@ footer {
 
         <span class="skill-number">02</span>
 
-        <h3>Information Systems</h3>
+        <h3>
+          Business
+        </h3>
 
         <ul class="skill-list">
-          <li>SQL</li>
-          <li>Database Concepts</li>
-          <li>Systems Analysis</li>
-          <li>DFD</li>
-          <li>BPMN</li>
-          <li>Requirements Analysis</li>
+          <li>Business Analysis</li>
+          <li>Business Processes</li>
+          <li>Digital Business</li>
+          <li>Business Development</li>
+          <li>Digital Marketing</li>
         </ul>
 
       </div>
@@ -957,14 +1377,16 @@ footer {
 
         <span class="skill-number">03</span>
 
-        <h3>Web & Development</h3>
+        <h3>
+          Data & Technology
+        </h3>
 
         <ul class="skill-list">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>ASP.NET</li>
-          <li>Visual Studio</li>
-          <li>GitHub</li>
+          <li>Data Analysis</li>
+          <li>Power BI</li>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>Database Design</li>
         </ul>
 
       </div>
@@ -974,14 +1396,110 @@ footer {
 
         <span class="skill-number">04</span>
 
-        <h3>Business</h3>
+        <h3>
+          Digital
+        </h3>
 
         <ul class="skill-list">
-          <li>Project Management</li>
-          <li>Digital Marketing</li>
-          <li>Process Improvement</li>
-          <li>Communication</li>
+          <li>Web Development</li>
+          <li>HTML & CSS</li>
+          <li>ASP.NET</li>
+          <li>Visual Content</li>
+          <li>Social Media</li>
         </ul>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section class="certifications">
+
+  <div class="container">
+
+    <div class="section-label">
+      05 — Certifications & Development
+    </div>
+
+    <h2 class="section-title">
+      Continuous learning.
+    </h2>
+
+
+    <div class="cert-grid" style="margin-top:40px;">
+
+
+      <div class="cert">
+
+        <h3>
+          Data Analysis Bootcamp
+        </h3>
+
+        <p>
+          LearnX
+        </p>
+
+        <span>
+          April 2026
+        </span>
+
+      </div>
+
+
+      <div class="cert">
+
+        <h3>
+          Introduction to SQL
+        </h3>
+
+        <p>
+          Simplilearn
+        </p>
+
+        <span>
+          Professional Development
+        </span>
+
+      </div>
+
+
+      <div class="cert">
+
+        <h3>
+          General-Purpose Programming Track
+        </h3>
+
+        <p>
+          Python Institute®
+        </p>
+
+        <span>
+          Python
+        </span>
+
+      </div>
+
+
+      <div class="cert">
+
+        <h3>
+          Tebyan Career Guidance Program
+        </h3>
+
+        <p>
+          Nuzmy
+        </p>
+
+        <span>
+          Career Development
+        </span>
 
       </div>
 
@@ -1004,7 +1522,7 @@ footer {
       <div>
 
         <div class="section-label">
-          04 — Contact
+          06 — Contact
         </div>
 
         <h2 class="contact-title">
@@ -1012,9 +1530,8 @@ footer {
         </h2>
 
         <p class="contact-description">
-          I am currently open to professional opportunities, internships,
-          and experiences where I can learn, contribute, and apply my
-          Management Information Systems skills.
+          I'm always open to connecting, learning about new opportunities,
+          and exploring ways to contribute and grow professionally.
         </p>
 
       </div>
@@ -1022,7 +1539,7 @@ footer {
 
       <div class="contact-links">
 
-        <!-- Replace the email below with your real email -->
+        <!-- Replace with your actual email -->
 
         <a
           class="contact-link"
@@ -1033,7 +1550,7 @@ footer {
         </a>
 
 
-        <!-- Replace the LinkedIn URL below with your profile -->
+        <!-- Replace with your actual LinkedIn profile -->
 
         <a
           class="contact-link"
@@ -1065,13 +1582,18 @@ footer {
 
   <footer>
 
-    <span>© 2026 Najla Alsaif</span>
+    <span>
+      © 2026 Najla Alsaif
+    </span>
 
-    <span>Management Information Systems</span>
+    <span>
+      Management Information Systems
+    </span>
 
   </footer>
 
 </div>
+
 
 </body>
 </html>
