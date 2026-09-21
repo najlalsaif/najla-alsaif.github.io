@@ -8,21 +8,21 @@
 
   <style>
     :root {
-      --cyan: #79AEB8;
-      --cyan-dark: #5E929D;
-      --cyan-light: #EAF5F6;
-      --cyan-soft: #F4FAFA;
+      --aqua: #79AEB8;
+      --aqua-dark: #5E929D;
+      --aqua-light: #EAF5F6;
+      --aqua-faint: #F3F9F9;
 
-      --navy: #1D3042;
-      --text: #3E5263;
-      --muted: #72818C;
+      --ink: #1D3042;
+      --text: #405362;
+      --muted: #788690;
 
-      --background: #F8FBFB;
+      --bg: #F8FBFB;
       --white: #FFFFFF;
-      --border: #DCE9EA;
+      --line: #DCE8E9;
 
-      --shadow: 0 12px 30px rgba(29, 48, 66, 0.07);
-      --shadow-hover: 0 18px 40px rgba(29, 48, 66, 0.11);
+      --shadow: 0 18px 45px rgba(29, 48, 66, 0.07);
+      --shadow-small: 0 8px 24px rgba(29, 48, 66, 0.06);
     }
 
     * {
@@ -32,42 +32,16 @@
       scroll-behavior: smooth;
     }
 
+    html {
+      scroll-padding-top: 90px;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 8% 12%, rgba(121,174,184,0.15), transparent 25%),
-        radial-gradient(circle at 92% 18%, rgba(121,174,184,0.11), transparent 24%),
-        radial-gradient(circle at 50% 88%, rgba(121,174,184,0.08), transparent 30%),
-        var(--background);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(121,174,184,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(121,174,184,0.035) 1px, transparent 1px);
-      background-size: 45px 45px;
-      z-index: -1;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: rgba(121,174,184,0.055);
-      top: 28%;
-      right: -170px;
-      filter: blur(2px);
-      pointer-events: none;
-      z-index: -1;
     }
 
     a {
@@ -76,141 +50,225 @@
     }
 
     .container {
-      width: min(1120px, 90%);
+      width: min(1160px, 90%);
       margin: auto;
     }
 
-    /* ================= NAVBAR ================= */
+    /* ================= BACKGROUND ================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(121,174,184,0.16),
+          transparent 23%
+        ),
+        radial-gradient(
+          circle at 94% 28%,
+          rgba(121,174,184,0.11),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 48% 95%,
+          rgba(121,174,184,0.08),
+          transparent 28%
+        );
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(
+          rgba(94,146,157,0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(94,146,157,0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 55px 55px;
+    }
+
+    /* ================= NAV ================= */
 
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(248, 251, 251, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(220, 233, 234, 0.8);
+
+      background: rgba(248,251,251,0.82);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(220,232,233,0.8);
     }
 
     .nav-container {
-      min-height: 72px;
+      min-height: 76px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+
+      gap: 40px;
     }
 
     .logo {
-      font-size: 20px;
+      color: var(--ink);
+      font-size: 18px;
       font-weight: 650;
-      color: var(--navy);
+      letter-spacing: -0.4px;
       white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--aqua-dark);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 26px;
+
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 13px;
       color: var(--muted);
+      font-size: 12px;
       transition: 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: var(--cyan-dark);
+      color: var(--aqua-dark);
     }
 
     /* ================= HERO ================= */
 
     .hero {
-      min-height: 88vh;
+      min-height: calc(100vh - 76px);
+
       display: flex;
       align-items: center;
+
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      border: 1px solid rgba(121,174,184,0.12);
-      right: -220px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 1px solid rgba(121,174,184,0.09);
-      right: -80px;
-      top: 50%;
-      transform: translateY(-50%);
+      align-items: center;
+      gap: 70px;
+
+      min-height: 720px;
     }
 
     .hero-content {
-      max-width: 850px;
-      padding: 80px 0;
       position: relative;
-      z-index: 2;
+      z-index: 5;
     }
 
-    .hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .hero-label {
+    .eyebrow {
       display: inline-flex;
-      padding: 7px 13px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.76);
-      border-radius: 30px;
-      color: var(--cyan-dark);
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 25px;
+
+      color: var(--aqua-dark);
       font-size: 11px;
-      letter-spacing: 0.8px;
-      font-weight: 600;
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--aqua-dark);
     }
 
     .hero h1 {
-      font-size: clamp(48px, 7vw, 86px);
-      line-height: 1;
+      color: var(--ink);
+
+      font-size: clamp(55px, 7.5vw, 100px);
+      line-height: 0.94;
+
       font-weight: 600;
-      color: var(--cyan-dark);
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-      white-space: nowrap;
+      letter-spacing: -5px;
+
+      margin-bottom: 25px;
     }
 
-    .hero h2 {
-      font-size: clamp(24px, 3vw, 36px);
-      line-height: 1.25;
-      color: var(--navy);
+    .hero h1 span {
+      color: var(--aqua-dark);
+    }
+
+    .hero-title {
+      max-width: 650px;
+
+      color: var(--ink);
+
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1.2;
+
       font-weight: 500;
-      margin-bottom: 18px;
+
+      margin-bottom: 22px;
     }
 
     .hero-description {
-      max-width: 700px;
-      font-size: 17px;
+      max-width: 650px;
+
       color: var(--muted);
-      margin-bottom: 34px;
+      font-size: 16px;
+
+      margin-bottom: 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-bottom: 35px;
+    }
+
+    .meta-pill {
+      padding: 7px 12px;
+
+      background: rgba(255,255,255,0.72);
+
+      border: 1px solid var(--line);
+      border-radius: 30px;
+
+      color: var(--aqua-dark);
+
+      font-size: 10px;
+      font-weight: 650;
+
+      letter-spacing: 0.8px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 13px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -218,188 +276,438 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 22px;
+
+      min-width: 125px;
+
+      padding: 12px 20px;
+
       border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
+
+      font-size: 12px;
+      font-weight: 650;
+
       transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: var(--cyan-dark);
+      background: var(--aqua-dark);
       color: white;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-small);
     }
 
-    .btn-outline {
-      border: 1px solid var(--border);
+    .btn-secondary {
       background: rgba(255,255,255,0.75);
-      color: var(--navy);
+      border: 1px solid var(--line);
+      color: var(--ink);
     }
 
-    .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan-dark);
-      transform: translateY(-2px);
+    .btn-secondary:hover {
+      color: var(--aqua-dark);
+      border-color: var(--aqua);
+      transform: translateY(-3px);
     }
 
-    /* ================= SECTIONS ================= */
+    /* HERO VISUAL */
+
+    .hero-visual {
+      min-height: 520px;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-orbit {
+      position: absolute;
+
+      width: 410px;
+      height: 410px;
+
+      border: 1px solid rgba(94,146,157,0.18);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::before {
+      content: "";
+
+      position: absolute;
+
+      width: 285px;
+      height: 285px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(94,146,157,0.15);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(94,146,157,0.12);
+      border-radius: 50%;
+    }
+
+    .visual-core {
+      position: relative;
+      z-index: 3;
+
+      width: 190px;
+      height: 190px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(255,255,255,0.95),
+          rgba(234,245,246,0.9)
+        );
+
+      border: 1px solid rgba(121,174,184,0.35);
+
+      box-shadow:
+        0 25px 60px rgba(94,146,157,0.13),
+        inset 0 0 0 18px rgba(255,255,255,0.35);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .core-number {
+      color: var(--aqua-dark);
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .core-label {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-top: 9px;
+    }
+
+    .floating-tag {
+      position: absolute;
+
+      padding: 11px 15px;
+
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--line);
+
+      box-shadow: var(--shadow-small);
+
+      border-radius: 9px;
+
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 600;
+
+      z-index: 5;
+    }
+
+    .tag-one {
+      top: 80px;
+      left: 12px;
+    }
+
+    .tag-two {
+      top: 185px;
+      right: -5px;
+    }
+
+    .tag-three {
+      bottom: 105px;
+      left: 35px;
+    }
+
+    .tag-four {
+      bottom: 40px;
+      right: 30px;
+    }
+
+    .dot {
+      position: absolute;
+
+      width: 8px;
+      height: 8px;
+
+      background: var(--aqua);
+
+      border-radius: 50%;
+    }
+
+    .dot-one {
+      top: 92px;
+      right: 105px;
+    }
+
+    .dot-two {
+      bottom: 90px;
+      left: 115px;
+    }
+
+    /* ================= SECTION HEADER ================= */
 
     section {
-      padding: 95px 0;
+      padding: 105px 0;
       position: relative;
     }
 
-    .section-heading {
-      margin-bottom: 42px;
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 45px;
     }
 
-    .section-number {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--cyan-dark);
+    .section-label {
+      color: var(--aqua-dark);
+
+      font-size: 10px;
       font-weight: 700;
-      margin-bottom: 7px;
-    }
 
-    .section-heading h2 {
-      font-size: 34px;
-      font-weight: 550;
-      color: var(--navy);
+      letter-spacing: 2px;
+
       margin-bottom: 8px;
     }
 
-    .section-heading p {
+    .section-head h2 {
+      color: var(--ink);
+
+      font-size: 38px;
+      font-weight: 550;
+
+      letter-spacing: -1.5px;
+    }
+
+    .section-intro {
+      max-width: 430px;
+
       color: var(--muted);
-      max-width: 650px;
-      font-size: 15px;
+      font-size: 13px;
     }
 
     /* ================= ABOUT ================= */
 
-    .about-grid {
+    .about-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 55px;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 70px;
       align-items: start;
     }
 
-    .about-text {
-      font-size: 16px;
-      color: var(--text);
+    .about-main {
+      max-width: 760px;
     }
 
-    .about-text p {
-      margin-bottom: 18px;
+    .about-main p {
+      color: var(--text);
+      font-size: 16px;
+
+      margin-bottom: 20px;
+    }
+
+    .about-main p:first-child {
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--ink);
     }
 
     .interest-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      gap: 9px;
+
+      margin-top: 30px;
     }
 
     .interest {
       padding: 8px 13px;
-      background: var(--cyan-light);
-      color: var(--cyan-dark);
-      border-radius: 20px;
-      font-size: 12px;
+
+      background: var(--aqua-light);
+
+      border-radius: 30px;
+
+      color: var(--aqua-dark);
+
+      font-size: 11px;
       font-weight: 600;
     }
 
-    .about-side {
-      padding: 28px;
-      border-left: 2px solid var(--cyan);
-      background: rgba(255,255,255,0.55);
+    .about-note {
+      padding: 30px;
+
+      border-top: 2px solid var(--aqua);
+
+      background: rgba(255,255,255,0.62);
+
+      box-shadow: var(--shadow-small);
     }
 
-    .about-side h3 {
-      color: var(--navy);
-      font-size: 18px;
-      margin-bottom: 15px;
-      font-weight: 600;
+    .note-number {
+      color: var(--aqua-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      margin-bottom: 30px;
     }
 
-    .about-side p {
+    .about-note h3 {
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 550;
+
+      margin-bottom: 12px;
+    }
+
+    .about-note p {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     /* ================= PROJECTS ================= */
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
     .project-card {
-      background: rgba(255,255,255,0.84);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 27px;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+
+      min-height: 330px;
+
+      padding: 30px;
+
+      background: rgba(255,255,255,0.82);
+
+      border: 1px solid var(--line);
+      border-radius: 15px;
+
+      box-shadow: var(--shadow-small);
+
       transition: 0.3s ease;
-      box-shadow: var(--shadow);
+    }
+
+    .project-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      right: -75px;
+      bottom: -75px;
+
+      border: 1px solid rgba(121,174,184,0.18);
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(121,174,184,0.55);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: rgba(121,174,184,0.5);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 50px;
     }
 
     .project-number {
-      font-size: 12px;
-      color: var(--cyan-dark);
+      color: var(--aqua-dark);
+
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
+
+      letter-spacing: 1.5px;
+    }
+
+    .project-line {
+      width: 50px;
+      height: 1px;
+
+      background: var(--line);
     }
 
     .project-card h3 {
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: 600;
+      color: var(--ink);
+
+      font-size: 24px;
+      font-weight: 550;
+
       margin-bottom: 12px;
     }
 
     .project-card p {
+      max-width: 500px;
+
       color: var(--muted);
+
       font-size: 13px;
-      line-height: 1.8;
-      flex-grow: 1;
+      line-height: 1.85;
     }
 
     .project-links {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      gap: 9px;
+
+      margin-top: 27px;
     }
 
     .project-link {
-      display: inline-block;
       padding: 8px 12px;
+
+      border: 1px solid var(--line);
       border-radius: 7px;
-      background: var(--cyan-soft);
-      color: var(--cyan-dark);
-      border: 1px solid var(--border);
-      font-size: 11px;
-      font-weight: 600;
+
+      background: var(--aqua-faint);
+
+      color: var(--aqua-dark);
+
+      font-size: 10px;
+      font-weight: 650;
+
       transition: 0.2s ease;
     }
 
     .project-link:hover {
-      background: var(--cyan-light);
+      background: var(--aqua-light);
+      transform: translateY(-2px);
     }
 
     /* ================= CERTIFICATIONS ================= */
@@ -411,40 +719,48 @@
     }
 
     .cert-card {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
+      padding: 27px;
+
+      background: rgba(255,255,255,0.75);
+
+      border: 1px solid var(--line);
+      border-radius: 13px;
+
       transition: 0.25s ease;
     }
 
     .cert-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-small);
     }
 
     .cert-type {
+      color: var(--aqua-dark);
+
       font-size: 10px;
-      letter-spacing: 1.4px;
-      color: var(--cyan-dark);
       font-weight: 700;
-      margin-bottom: 10px;
+
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+
+      margin-bottom: 15px;
     }
 
     .cert-card h3 {
-      color: var(--navy);
-      font-size: 17px;
-      font-weight: 600;
+      color: var(--ink);
+
+      font-size: 18px;
+      font-weight: 550;
+
       margin-bottom: 7px;
     }
 
     .cert-card p {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
-    /* ================= CONTINUOUS LEARNING ================= */
+    /* ================= LEARNING ================= */
 
     .learning-list {
       display: grid;
@@ -453,214 +769,438 @@
     }
 
     .learning-card {
+      position: relative;
+
+      padding: 28px;
+
+      background: rgba(255,255,255,0.78);
+
+      border: 1px solid var(--line);
+      border-radius: 13px;
+
       display: flex;
       justify-content: space-between;
-      gap: 25px;
       align-items: center;
-      padding: 24px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--border);
-      border-radius: 14px;
+
+      gap: 25px;
+
       transition: 0.25s ease;
     }
 
     .learning-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-small);
     }
 
     .learning-card h3 {
-      color: var(--navy);
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 6px;
+      color: var(--ink);
+
+      font-size: 18px;
+      font-weight: 550;
+
+      margin-bottom: 5px;
     }
 
     .learning-card p {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .learning-type {
-      font-size: 10px;
-      color: var(--cyan-dark);
+      color: var(--aqua-dark);
+
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 1px;
+
+      letter-spacing: 1.5px;
+
       white-space: nowrap;
       text-transform: uppercase;
     }
 
-    /* ================= INVOLVEMENT ================= */
+    /* ================= INVOLVEMENT TIMELINE ================= */
 
-    .involvement-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .timeline {
+      position: relative;
+
+      max-width: 900px;
+
+      margin: auto;
     }
 
-    .involvement-card {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 9px;
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+
+      padding-left: 45px;
+      padding-bottom: 34px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+
+      left: 4px;
+      top: 6px;
+
+      width: 11px;
+      height: 11px;
+
+      background: var(--bg);
+
+      border: 2px solid var(--aqua);
+
+      border-radius: 50%;
+    }
+
+    .timeline-content {
+      padding: 23px 25px;
+
+      background: rgba(255,255,255,0.72);
+
+      border: 1px solid var(--line);
+      border-radius: 12px;
+
       transition: 0.25s ease;
     }
 
-    .involvement-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: rgba(121,174,184,0.5);
+    .timeline-content:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-small);
     }
 
-    .involvement-date {
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: var(--cyan-dark);
+    .timeline-date {
+      color: var(--aqua-dark);
+
+      font-size: 9px;
       font-weight: 700;
-      margin-bottom: 9px;
+
+      letter-spacing: 1.2px;
+
       text-transform: uppercase;
+
+      margin-bottom: 7px;
     }
 
-    .involvement-card h3 {
-      color: var(--navy);
+    .timeline-content h3 {
+      color: var(--ink);
+
       font-size: 17px;
       font-weight: 600;
-      margin-bottom: 4px;
+
+      margin-bottom: 3px;
     }
 
-    .involvement-role {
-      color: var(--cyan-dark);
-      font-size: 13px;
+    .timeline-role {
+      color: var(--aqua-dark);
+
+      font-size: 12px;
       font-weight: 600;
-      margin-bottom: 10px;
+
+      margin-bottom: 8px;
     }
 
-    .involvement-card p {
+    .timeline-content p {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
+
+      font-size: 12px;
+      line-height: 1.7;
     }
 
     /* ================= SKILLS ================= */
 
-    .skills-wrapper {
+    .skills-area {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .skill {
       padding: 10px 16px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      color: var(--navy);
-      font-size: 13px;
+
+      background: rgba(255,255,255,0.76);
+
+      border: 1px solid var(--line);
+      border-radius: 30px;
+
+      color: var(--ink);
+
+      font-size: 12px;
       font-weight: 550;
+
       transition: 0.25s ease;
     }
 
     .skill:hover {
-      background: var(--cyan-light);
-      color: var(--cyan-dark);
+      color: var(--aqua-dark);
+      background: var(--aqua-light);
+
       transform: translateY(-2px);
     }
 
     /* ================= CONTACT ================= */
 
-    .contact-box {
-      background: linear-gradient(
-        135deg,
-        rgba(234,245,246,0.9),
-        rgba(255,255,255,0.85)
-      );
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 42px;
+    .contact-section {
+      padding-top: 120px;
+      padding-bottom: 70px;
+    }
+
+    .contact-wrap {
+      position: relative;
+      overflow: hidden;
+
+      padding: 65px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(234,245,246,0.94),
+          rgba(255,255,255,0.78)
+        );
+
+      border: 1px solid var(--line);
+    }
+
+    .contact-wrap::before {
+      content: "";
+
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      border: 1px solid rgba(94,146,157,0.13);
+
+      border-radius: 50%;
+
+      right: -120px;
+      top: -150px;
+    }
+
+    .contact-wrap::after {
+      content: "";
+
+      position: absolute;
+
+      width: 210px;
+      height: 210px;
+
+      border: 1px solid rgba(94,146,157,0.11);
+
+      border-radius: 50%;
+
+      right: -60px;
+      top: -90px;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 2;
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
+      grid-template-columns: 1fr auto;
+
+      gap: 60px;
+
+      align-items: end;
     }
 
-    .contact-box h2 {
-      font-size: 32px;
-      color: var(--navy);
+    .contact-small {
+      color: var(--aqua-dark);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 14px;
+    }
+
+    .contact-wrap h2 {
+      color: var(--ink);
+
+      font-size: clamp(42px, 6vw, 72px);
+
+      line-height: 0.95;
+
       font-weight: 550;
-      margin-bottom: 12px;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 20px;
     }
 
-    .contact-box p {
-      color: var(--muted);
-      font-size: 14px;
+    .contact-email {
+      color: var(--aqua-dark);
+
+      font-size: clamp(18px, 2.5vw, 27px);
+
+      font-weight: 500;
+
+      transition: 0.25s ease;
     }
 
-    .contact-details {
+    .contact-email:hover {
+      color: var(--ink);
+    }
+
+    .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+
+      min-width: 220px;
     }
 
-    .contact-item {
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      font-size: 13px;
+    .contact-info a,
+    .contact-info span {
       color: var(--text);
+
+      font-size: 12px;
+
+      padding-bottom: 9px;
+
+      border-bottom: 1px solid rgba(220,232,233,0.9);
     }
 
-    .contact-item strong {
-      color: var(--navy);
-      display: block;
-      font-size: 11px;
-      margin-bottom: 2px;
-      letter-spacing: 0.6px;
+    .contact-info a:hover {
+      color: var(--aqua-dark);
     }
 
     /* ================= FOOTER ================= */
 
     footer {
-      padding: 35px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
+      padding: 30px 0 38px;
+
       color: var(--muted);
-      font-size: 12px;
+
+      font-size: 10px;
+
+      text-align: center;
     }
 
     /* ================= RESPONSIVE ================= */
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
 
-      .nav-container {
-        flex-direction: column;
-        padding: 18px 0;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid {
+      .hero-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
 
-      .cert-grid,
-      .learning-list,
-      .involvement-list {
-        grid-template-columns: 1fr;
+      .hero-content {
+        padding-top: 80px;
       }
 
-      .contact-box {
+      .hero-visual {
+        min-height: 400px;
+      }
+
+      .about-layout {
         grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .contact-info {
+        max-width: 350px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 750px) {
+
+      .nav-container {
+        min-height: auto;
+        padding: 17px 0;
+
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .projects-grid,
+      .cert-grid,
+      .learning-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-intro {
+        margin-top: 12px;
+      }
+
+      .visual-orbit {
+        width: 330px;
+        height: 330px;
+      }
+
+      .visual-core {
+        width: 150px;
+        height: 150px;
+      }
+
+      .core-number {
+        font-size: 38px;
+      }
+
+      .tag-one {
+        left: 0;
+        top: 50px;
+      }
+
+      .tag-two {
+        right: 0;
+        top: 130px;
+      }
+
+      .tag-three {
+        left: 5px;
+        bottom: 70px;
+      }
+
+      .tag-four {
+        right: 5px;
+        bottom: 20px;
+      }
+
+      .contact-wrap {
+        padding: 40px 28px;
+      }
+    }
+
+    @media (max-width: 500px) {
 
       .container {
         width: 88%;
@@ -670,49 +1210,69 @@
         min-height: auto;
       }
 
-      .hero-content {
-        padding: 70px 0;
-      }
-
       .hero h1 {
-        font-size: 52px;
-        letter-spacing: -2px;
+        font-size: 57px;
+        letter-spacing: -3px;
       }
 
-      .hero h2 {
-        font-size: 25px;
+      .hero-title {
+        font-size: 27px;
       }
 
       .hero-description {
-        font-size: 15px;
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .visual-orbit {
+        width: 275px;
+        height: 275px;
+      }
+
+      .visual-core {
+        width: 125px;
+        height: 125px;
+      }
+
+      .core-number {
+        font-size: 32px;
+      }
+
+      .core-label {
+        font-size: 8px;
+      }
+
+      .floating-tag {
+        font-size: 9px;
+        padding: 8px 10px;
       }
 
       section {
-        padding: 70px 0;
+        padding: 75px 0;
       }
 
-      .section-heading h2 {
-        font-size: 29px;
+      .section-head h2 {
+        font-size: 30px;
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
+      .project-card {
+        min-height: auto;
       }
 
-      .contact-box {
-        padding: 28px;
+      .timeline-content {
+        padding: 20px;
       }
 
-      .contact-box h2 {
-        font-size: 28px;
+      .contact-wrap h2 {
+        font-size: 50px;
       }
 
-      .nav-links {
-        gap: 13px;
-      }
-
-      .nav-links a {
-        font-size: 11px;
+      .contact-email {
+        font-size: 18px;
+        word-break: break-word;
       }
     }
   </style>
@@ -725,9 +1285,9 @@
   <nav>
     <div class="container nav-container">
 
-      <div class="logo">
-        Najla Alsaif
-      </div>
+      <a href="#top" class="logo">
+        Najla <span>Alsaif</span>
+      </a>
 
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -745,47 +1305,98 @@
 
   <!-- ================= HERO ================= -->
 
-  <header class="hero">
+  <header class="hero" id="top">
 
     <div class="container">
 
-      <div class="hero-content">
+      <div class="hero-grid">
 
-        <div class="hero-top">
+        <div class="hero-content">
 
-          <span class="hero-label">
-            SENIOR MIS STUDENT · KING SAUD UNIVERSITY
-          </span>
+          <div class="eyebrow">
+            Senior MIS Student
+          </div>
 
-          <span class="hero-label">
-            EXPECTED GRADUATION · JANUARY 2028
-          </span>
+          <h1>
+            Najla <span>Alsaif.</span>
+          </h1>
+
+          <h2 class="hero-title">
+            Management Information Systems Student
+            exploring business, technology & digital solutions.
+          </h2>
+
+          <p class="hero-description">
+            I’m a Senior Management Information Systems student at
+            King Saud University, interested in exploring different
+            areas where business and technology meet. I build my
+            experience through academic projects, student involvement,
+            volunteering, and practical learning.
+          </p>
+
+          <div class="hero-meta">
+
+            <span class="meta-pill">
+              KING SAUD UNIVERSITY
+            </span>
+
+            <span class="meta-pill">
+              EXPECTED GRADUATION · JANUARY 2028
+            </span>
+
+          </div>
+
+          <div class="hero-buttons">
+
+            <a href="#about" class="btn btn-primary">
+              Explore My Work
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Get In Touch
+            </a>
+
+          </div>
 
         </div>
 
-        <h1>Najla Alsaif.</h1>
 
-        <h2>
-          Senior Management Information Systems Student
-        </h2>
+        <!-- HERO VISUAL -->
 
-        <p class="hero-description">
-          I’m interested in the intersection of business, technology,
-          data, and digital solutions. Through academic projects,
-          student involvement, and practical experiences, I continue
-          to explore different areas of Management Information Systems
-          and develop skills that connect technology with business needs.
-        </p>
+        <div class="hero-visual">
 
-        <div class="hero-buttons">
+          <div class="visual-orbit"></div>
 
-          <a href="#about" class="btn btn-primary">
-            About Me
-          </a>
+          <div class="visual-core">
 
-          <a href="#contact" class="btn btn-outline">
-            Contact Me
-          </a>
+            <div class="core-number">
+              MIS
+            </div>
+
+            <div class="core-label">
+              BUSINESS × TECHNOLOGY
+            </div>
+
+          </div>
+
+          <div class="floating-tag tag-one">
+            Data
+          </div>
+
+          <div class="floating-tag tag-two">
+            Digital Solutions
+          </div>
+
+          <div class="floating-tag tag-three">
+            Project Management
+          </div>
+
+          <div class="floating-tag tag-four">
+            Business
+          </div>
+
+          <span class="dot dot-one"></span>
+          <span class="dot dot-two"></span>
 
         </div>
 
@@ -802,24 +1413,29 @@
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          01 · ABOUT
+        <div>
+          <div class="section-label">
+            01 · ABOUT
+          </div>
+
+          <h2>
+            A little about me.
+          </h2>
         </div>
 
-        <h2>About Me</h2>
-
-        <p>
-          A brief introduction to my academic background and interests.
+        <p class="section-intro">
+          An MIS student with broad interests and a growing collection
+          of academic, professional, and student experiences.
         </p>
 
       </div>
 
 
-      <div class="about-grid">
+      <div class="about-layout">
 
-        <div class="about-text">
+        <div class="about-main">
 
           <p>
             I’m a Senior Management Information Systems student at
@@ -856,18 +1472,20 @@
         </div>
 
 
-        <div class="about-side">
+        <div class="about-note">
+
+          <div class="note-number">
+            WHAT I BRING
+          </div>
 
           <h3>
-            What I Bring
+            Curious. Practical. Collaborative.
           </h3>
 
           <p>
-            A combination of academic knowledge, practical project
-            experience, communication skills, teamwork, and involvement
-            in student initiatives. I enjoy solving problems, coordinating
-            activities, communicating with different stakeholders, and
-            learning through real-world experiences.
+            I enjoy solving problems, communicating with different
+            stakeholders, coordinating activities, working within teams,
+            and learning through real-world experiences.
           </p>
 
         </div>
@@ -885,17 +1503,21 @@
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          02 · PROJECTS
+        <div>
+          <div class="section-label">
+            02 · PROJECTS
+          </div>
+
+          <h2>
+            Selected work.
+          </h2>
         </div>
 
-        <h2>Selected Projects</h2>
-
-        <p>
+        <p class="section-intro">
           Academic projects where I applied MIS concepts to practical
-          business and technology problems.
+          business, data, database, and web-development problems.
         </p>
 
       </div>
@@ -906,10 +1528,16 @@
 
         <!-- PROJECT 01 -->
 
-        <div class="project-card">
+        <article class="project-card">
 
-          <div class="project-number">
-            PROJECT 01
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 01
+            </span>
+
+            <span class="project-line"></span>
+
           </div>
 
           <h3>
@@ -934,15 +1562,21 @@
 
           </div>
 
-        </div>
+        </article>
 
 
         <!-- PROJECT 02 -->
 
-        <div class="project-card">
+        <article class="project-card">
 
-          <div class="project-number">
-            PROJECT 02
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 02
+            </span>
+
+            <span class="project-line"></span>
+
           </div>
 
           <h3>
@@ -975,15 +1609,21 @@
 
           </div>
 
-        </div>
+        </article>
 
 
         <!-- PROJECT 03 -->
 
-        <div class="project-card">
+        <article class="project-card">
 
-          <div class="project-number">
-            PROJECT 03
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 03
+            </span>
+
+            <span class="project-line"></span>
+
           </div>
 
           <h3>
@@ -1008,15 +1648,21 @@
 
           </div>
 
-        </div>
+        </article>
 
 
         <!-- PROJECT 04 -->
 
-        <div class="project-card">
+        <article class="project-card">
 
-          <div class="project-number">
-            PROJECT 04
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 04
+            </span>
+
+            <span class="project-line"></span>
+
           </div>
 
           <h3>
@@ -1041,7 +1687,7 @@
 
           </div>
 
-        </div>
+        </article>
 
 
       </div>
@@ -1057,15 +1703,19 @@
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          03 · CERTIFICATIONS
+        <div>
+          <div class="section-label">
+            03 · CERTIFICATIONS
+          </div>
+
+          <h2>
+            Certifications.
+          </h2>
         </div>
 
-        <h2>Certifications</h2>
-
-        <p>
+        <p class="section-intro">
           Certifications and professional development completed
           throughout my academic journey.
         </p>
@@ -1123,15 +1773,19 @@
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          04 · CONTINUOUS LEARNING
+        <div>
+          <div class="section-label">
+            04 · CONTINUOUS LEARNING
+          </div>
+
+          <h2>
+            Always learning.
+          </h2>
         </div>
 
-        <h2>Continuous Learning</h2>
-
-        <p>
+        <p class="section-intro">
           Current learning experiences supporting my academic
           and professional development.
         </p>
@@ -1191,297 +1845,367 @@
   </section>
 
 
-  <!-- ================= VOLUNTEERING ================= -->
+  <!-- ================= INVOLVEMENT ================= -->
 
   <section id="involvement">
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          05 · INVOLVEMENT
+        <div>
+          <div class="section-label">
+            05 · INVOLVEMENT
+          </div>
+
+          <h2>
+            Beyond the classroom.
+          </h2>
         </div>
 
-        <h2>
-          Volunteering & Student Involvement
-        </h2>
-
-        <p>
-          Leadership, public relations, coordination, media,
-          and volunteering experiences throughout my university journey.
+        <p class="section-intro">
+          Public relations, leadership, coordination, media, and
+          volunteering experiences throughout my university journey.
         </p>
 
       </div>
 
 
-      <div class="involvement-list">
+      <div class="timeline">
 
 
         <!-- INVESTMENT CLUB -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jan 2024 – Jun 2024
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jan 2024 – Jun 2024
+            </div>
+
+            <h3>
+              Investment Club
+            </h3>
+
+            <div class="timeline-role">
+              Public Relations Member
+            </div>
+
+            <p>
+              Contributed to public relations activities and supported
+              communication and coordination initiatives within the club.
+            </p>
+
           </div>
-
-          <h3>
-            Investment Club
-          </h3>
-
-          <div class="involvement-role">
-            Public Relations Member
-          </div>
-
-          <p>
-            Contributed to public relations activities and supported
-            communication and coordination initiatives within the club.
-          </p>
 
         </div>
 
 
         <!-- ACCOUNTING CLUB -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jan 2025 – Jun 2025
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jan 2025 – Jun 2025
+            </div>
+
+            <h3>
+              Accounting Club
+            </h3>
+
+            <div class="timeline-role">
+              External Communication
+            </div>
+
+            <p>
+              Supported external communication activities and contributed
+              to coordination with external parties.
+            </p>
+
           </div>
-
-          <h3>
-            Accounting Club
-          </h3>
-
-          <div class="involvement-role">
-            External Communication
-          </div>
-
-          <p>
-            Supported external communication activities and contributed
-            to coordination with external parties.
-          </p>
 
         </div>
 
 
         <!-- STUDENT PARTNERSHIP -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jan 2025 – Jul 2025
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jan 2025 – Jul 2025
+            </div>
+
+            <h3>
+              Student Partnership Program
+            </h3>
+
+            <div class="timeline-role">
+              Public Relations
+            </div>
+
+            <p>
+              Supported public relations activities and communication
+              initiatives within the student partnership program.
+            </p>
+
           </div>
-
-          <h3>
-            Student Partnership Program
-          </h3>
-
-          <div class="involvement-role">
-            Public Relations
-          </div>
-
-          <p>
-            Supported public relations activities and communication
-            initiatives within the student partnership program.
-          </p>
 
         </div>
 
 
         <!-- MANAGEMENT CLUB -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jan 2025 – Jul 2025
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jan 2025 – Jul 2025
+            </div>
+
+            <h3>
+              Management Club
+            </h3>
+
+            <div class="timeline-role">
+              Media Committee
+            </div>
+
+            <p>
+              Contributed to media activities and visual content
+              supporting the club’s initiatives and events.
+            </p>
+
           </div>
-
-          <h3>
-            Management Club
-          </h3>
-
-          <div class="involvement-role">
-            Media Committee
-          </div>
-
-          <p>
-            Contributed to media activities and visual content supporting
-            the club’s initiatives and events.
-          </p>
 
         </div>
 
 
         <!-- FAD -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jun 2025 – Present
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jun 2025 – Present
+            </div>
+
+            <h3>
+              FAD
+            </h3>
+
+            <div class="timeline-role">
+              Volunteer
+            </div>
+
+            <p>
+              Supported university students throughout their academic
+              journey by contributing to major and course profiles
+              and providing academic guidance and support.
+            </p>
+
           </div>
-
-          <h3>
-            FAD
-          </h3>
-
-          <div class="involvement-role">
-            Volunteer
-          </div>
-
-          <p>
-            Supported university students throughout their academic
-            journey by contributing to major and course profiles and
-            providing academic guidance and support.
-          </p>
 
         </div>
 
 
         <!-- MIS CLUB MARKETING -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Aug 2025 – Jan 2026
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Aug 2025 – Jan 2026
+            </div>
+
+            <h3>
+              Management Information Systems Club
+            </h3>
+
+            <div class="timeline-role">
+              Marketing Team Member
+            </div>
+
+            <p>
+              Contributed to photography and visual content for
+              presenting and promoting the club’s activities
+              and initiatives.
+            </p>
+
           </div>
-
-          <h3>
-            Management Information Systems Club
-          </h3>
-
-          <div class="involvement-role">
-            Marketing Team Member
-          </div>
-
-          <p>
-            Contributed to photography and visual content for presenting
-            and promoting the club’s activities and initiatives.
-          </p>
 
         </div>
 
 
         <!-- CULTURAL & SOCIAL CLUB -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Aug 2025 – Jan 2026
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Aug 2025 – Jan 2026
+            </div>
+
+            <h3>
+              Cultural & Social Club
+            </h3>
+
+            <div class="timeline-role">
+              Coordination Unit Leader
+            </div>
+
+            <p>
+              Coordinated public relations activities, sponsorships,
+              events, and team responsibilities. Distributed tasks
+              among members and followed up continuously to support
+              smooth execution.
+            </p>
+
           </div>
-
-          <h3>
-            Cultural & Social Club
-          </h3>
-
-          <div class="involvement-role">
-            Coordination Unit Leader
-          </div>
-
-          <p>
-            Coordinated public relations activities, sponsorships,
-            events, and team responsibilities. Distributed tasks among
-            members and followed up continuously to support smooth execution.
-          </p>
 
         </div>
 
 
         <!-- WEQA -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Sep 2025 – Jan 2026
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Sep 2025 – Jan 2026
+            </div>
+
+            <h3>
+              Weqa Initiative
+            </h3>
+
+            <div class="timeline-role">
+              Public Relations Leader
+            </div>
+
+            <p>
+              Sought sponsorships and success partners while supporting
+              external communication and partnership development.
+            </p>
+
           </div>
-
-          <h3>
-            Weqa Initiative
-          </h3>
-
-          <div class="involvement-role">
-            Public Relations Leader
-          </div>
-
-          <p>
-            Sought sponsorships and success partners while supporting
-            external communication and partnership development.
-          </p>
 
         </div>
 
 
         <!-- LEARNX -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Jan 2026 – Present
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Jan 2026 – Present
+            </div>
+
+            <h3>
+              LearnX — MIS Club
+            </h3>
+
+            <div class="timeline-role">
+              Coordination Team Member
+            </div>
+
+            <p>
+              Participated in coordination activities and supported
+              initiatives organized within the MIS Club.
+            </p>
+
           </div>
-
-          <h3>
-            LearnX — MIS Club
-          </h3>
-
-          <div class="involvement-role">
-            Coordination Team Member
-          </div>
-
-          <p>
-            Participated in coordination activities and supported
-            initiatives organized within the MIS Club.
-          </p>
 
         </div>
 
 
         <!-- PROJECT MANAGEMENT CLUB -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Mar 2026 – Present
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Mar 2026 – Present
+            </div>
+
+            <h3>
+              Project Management Club
+            </h3>
+
+            <div class="timeline-role">
+              Public Relations Team Member
+            </div>
+
+            <p>
+              Support public relations activities, communication,
+              and coordination initiatives within the club.
+            </p>
+
           </div>
-
-          <h3>
-            Project Management Club
-          </h3>
-
-          <div class="involvement-role">
-            Public Relations Team Member
-          </div>
-
-          <p>
-            Support public relations activities, communication,
-            and coordination initiatives within the club.
-          </p>
 
         </div>
 
 
         <!-- JOB SHADOWING -->
 
-        <div class="involvement-card">
+        <div class="timeline-item">
 
-          <div class="involvement-date">
-            Aug 2026 – Present
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <div class="timeline-date">
+              Aug 2026 – Present
+            </div>
+
+            <h3>
+              Job Shadowing Project · MIS Club
+            </h3>
+
+            <div class="timeline-role">
+              Public Relations Member
+            </div>
+
+            <p>
+              Support the project by reaching out to companies and
+              building connections with organizations that can provide
+              students with professional environments and practical
+              job-shadowing experiences.
+            </p>
+
           </div>
-
-          <h3>
-            Job Shadowing Project · MIS Club
-          </h3>
-
-          <div class="involvement-role">
-            Public Relations Member
-          </div>
-
-          <p>
-            Support the project by reaching out to companies and
-            building connections with organizations that can provide
-            students with professional environments and practical
-            job-shadowing experiences.
-          </p>
 
         </div>
 
@@ -1499,17 +2223,19 @@
 
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-head">
 
-        <div class="section-number">
-          06 · SKILLS
+        <div>
+          <div class="section-label">
+            06 · SKILLS
+          </div>
+
+          <h2>
+            Skills I use.
+          </h2>
         </div>
 
-        <h2>
-          Skills
-        </h2>
-
-        <p>
+        <p class="section-intro">
           Core skills developed through academic projects,
           university involvement, and practical experiences.
         </p>
@@ -1517,55 +2243,20 @@
       </div>
 
 
-      <div class="skills-wrapper">
+      <div class="skills-area">
 
-        <span class="skill">
-          Problem Solving
-        </span>
-
-        <span class="skill">
-          Communication
-        </span>
-
-        <span class="skill">
-          Project Management
-        </span>
-
-        <span class="skill">
-          Data Analysis
-        </span>
-
-        <span class="skill">
-          Database Management
-        </span>
-
-        <span class="skill">
-          Business Analysis
-        </span>
-
-        <span class="skill">
-          Public Relations
-        </span>
-
-        <span class="skill">
-          Teamwork
-        </span>
-
-        <span class="skill">
-          Power BI
-        </span>
-
-        <span class="skill">
-          SQL
-        </span>
-
-        <span class="skill">
-          Python
-        </span>
-
-        <span class="skill">
-          Digital Solutions
-        </span>
+        <span class="skill">Problem Solving</span>
+        <span class="skill">Communication</span>
+        <span class="skill">Project Management</span>
+        <span class="skill">Data Analysis</span>
+        <span class="skill">Database Management</span>
+        <span class="skill">Business Analysis</span>
+        <span class="skill">Public Relations</span>
+        <span class="skill">Teamwork</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Python</span>
+        <span class="skill">Digital Solutions</span>
 
       </div>
 
@@ -1576,65 +2267,51 @@
 
   <!-- ================= CONTACT ================= -->
 
-  <section id="contact">
+  <section id="contact" class="contact-section">
 
     <div class="container">
 
-      <div class="contact-box">
+      <div class="contact-wrap">
 
-        <div>
+        <div class="contact-inner">
 
-          <h2>
-            Let’s Connect
-          </h2>
+          <div>
 
-          <p>
-            I’m always open to learning, connecting with professionals,
-            and exploring opportunities that allow me to gain practical
-            experience and grow.
-          </p>
+            <div class="contact-small">
+              LET'S CONNECT
+            </div>
 
-        </div>
+            <h2>
+              Have an idea?<br>
+              Let's talk.
+            </h2>
 
-
-        <div class="contact-details">
-
-          <div class="contact-item">
-
-            <strong>
-              EMAIL
-            </strong>
-
-            <a href="mailto:Najlaal447@gmail.com">
+            <a
+              href="mailto:Najlaal447@gmail.com"
+              class="contact-email"
+            >
               Najlaal447@gmail.com
             </a>
 
           </div>
 
 
-          <div class="contact-item">
-
-            <strong>
-              LINKEDIN
-            </strong>
+          <div class="contact-info">
 
             <a
               href="https://www.linkedin.com/in/najla-alsaif-7a4b27341?utm_source=share_via&utm_content=profile&utm_medium=member_ios/"
               target="_blank"
             >
-              linkedin.com/in/najla-alsaif
+              LinkedIn
             </a>
 
-          </div>
+            <span>
+              Riyadh, Saudi Arabia
+            </span>
 
-
-          <div class="contact-item">
-
-            <strong>
-              LOCATION
-            </strong>
-
-            Riyadh, Saudi Arabia
+            <span>
+              Management Information Systems
+            </span>
 
           </div>
 
@@ -1653,7 +2330,7 @@
 
     <div class="container">
 
-      © 2026 Najla Alsaif. All rights reserved.
+      © 2026 Najla Alsaif · Portfolio
 
     </div>
 
